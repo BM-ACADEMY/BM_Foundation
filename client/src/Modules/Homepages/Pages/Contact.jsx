@@ -95,11 +95,11 @@ const Contact = () => {
                 <div>
                   <h4 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">Office Phone</h4>
                   <div className="flex flex-col space-y-1">
-                    <a href="tel:04132220602" className="text-slate-800 font-medium text-lg hover:text-[#0033A0] transition flex items-center gap-2 group">
-                      0413 – 2220602
+                    <a href="tel:1234567890" className="text-slate-800 font-medium text-lg hover:text-[#0033A0] transition flex items-center gap-2 group">
+                      1234567890
                     </a>
-                    <a href="tel:04132232261" className="text-slate-800 font-medium text-lg hover:text-[#0033A0] transition flex items-center gap-2 group">
-                      0413 – 2232261
+                    <a href="tel:1234567890" className="text-slate-800 font-medium text-lg hover:text-[#0033A0] transition flex items-center gap-2 group">
+                      1234567890
                     </a>
                   </div>
                 </div>
@@ -135,7 +135,7 @@ const Contact = () => {
                 style={{ border: 0 }}
                 loading="lazy"
                 allowFullScreen
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9606.375054763383!2d79.81069928787886!3d11.936867692553706!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a536176ef89f879%3A0x34f6ecbbe661aa2!2s1%2C%20New%20Iyyanar%20Koil%20St%2C%20Kuyavarpalayam%2C%20Puducherry%2C%20605013!5e1!3m2!1sen!2sin!4v1763979653109!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7420.129808273369!2d79.82649217416686!3d11.961234618581182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a53636a1752dc05%3A0xaa5795ccc1815bf7!2sBM%20Academy%20-%20Digital%20Marketing%2C%20Full%20Stack%20Development%2C%20IT%20%26%20Skill%20Training%20Institute!5e1!3m2!1sen!2sin!4v1765891902420!5m2!1sen!2sin"
                 >
               </iframe>
 

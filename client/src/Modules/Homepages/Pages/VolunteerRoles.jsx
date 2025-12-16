@@ -8,7 +8,7 @@ import {
   UserPlus,
   CheckCircle2
 } from "lucide-react";
-
+import { Link } from "react-router-dom";
 const roles = [
   {
     title: "Field Volunteer",
@@ -114,7 +114,7 @@ const VolunteerRoles = () => {
               BM Foundation-oda change journey-la neengalum part aagunga.
             </p>
           </div>
-
+        <Link to="/license">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
@@ -122,6 +122,7 @@ const VolunteerRoles = () => {
           >
             Join as a Volunteer →
           </motion.button>
+          </Link>
         </div>
       </div>
     </section>

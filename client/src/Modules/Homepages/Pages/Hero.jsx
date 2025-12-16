@@ -1,11 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, MoveRight, Heart } from "lucide-react";
-
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="relative w-full bg-white py-16 px-6 md:px-12 lg:px-24 overflow-hidden">
+
+    <section className="relative w-full bg-white py-16 px-6 md:px-12 lg:px-24 overflow-hidden" id="about">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
 
         {/* ---------------- LEFT SIDE : IMAGE COMPOSITION ---------------- */}
@@ -117,13 +118,15 @@ const Hero = () => {
 
           {/* CTA + Quote */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 pt-6">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.96 }}
-              className="bg-orange-600 hover:bg-orange-700 transition-colors text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 shadow-lg shadow-orange-200"
-            >
-              Join the Orientation <MoveRight size={20} />
-            </motion.button>
+            <Link to="/license">
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.96 }}
+    className="bg-orange-600 hover:bg-orange-700 transition-colors text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 shadow-lg shadow-orange-200"
+  >
+    Join the Orientation <MoveRight size={20} />
+  </motion.button>
+</Link>
 
             {/* Quote Card */}
             <motion.div

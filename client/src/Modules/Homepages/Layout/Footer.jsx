@@ -1,116 +1,106 @@
 // src/Modules/Homepages/Layout/Footer.jsx
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 import Logo from "../../../assets/banner/BM_FOUNDATION _logo.png";
 
 const Footer = () => {
-  // Using a placeholder image since local assets cannot be resolved in this environment
+  const navigate = useNavigate();
 
-  const menuItems = ["Home",  "Contact"];
+  const menuItems = [
+    { label: "Home", path: "/" },
+    { label: "About", path: "/#about" },
+    { label: "Contact", path: "/contact" },
+  ];
 
   return (
-    <footer className="bg-[#00254e] text-white relative overflow-hidden">
+    <footer className="bg-white border-t border-gray-200">
+      <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24 py-12">
 
-      {/* ✨ Vector Background Design (Subtle Waves) */}
-      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-        <svg className="w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#ffffff" fillOpacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
-      </div>
+        {/* TOP */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
 
-      {/* Additional Abstract Geometric Vector */}
-      <div className="absolute top-0 right-0 z-0 opacity-5 pointer-events-none transform translate-x-1/3 -translate-y-1/4">
-         <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#FCD200" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-5.3C93.5,8.6,82.2,21.5,71.2,32.6C60.2,43.7,49.5,53,37.6,60.8C25.7,68.6,12.6,74.9,-1.2,76.9C-15,79,-30.1,76.8,-43.3,69.5C-56.5,62.2,-67.9,49.8,-75.7,35.6C-83.5,21.4,-87.7,5.4,-84.8,-9.4C-81.9,-24.2,-71.9,-37.8,-59.6,-47.5C-47.3,-57.2,-32.7,-63,-18.2,-64.5C-3.7,-66,10.8,-63.2,25.3,-60.4L30.5,-59.8Z" transform="translate(100 100)" />
-         </svg>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 md:px-16 py-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-
-          {/* 🔵 Column 1: Logo + Description */}
-          <div className="flex flex-col gap-5">
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className="p-1 rounded-full bg-white/5 backdrop-blur-sm border border-white/20">
-                <img
-                  src={Logo}
-                  alt="NMK Logo"
-                  className="w-10 h-10 md:w-16 md:h-16 object-contain rounded-full"
-                />
-              </div>
-
-              <span className="text-white font-bold text-lg md:text-xl leading-snug group-hover:text-[#FCD200] transition-colors">
-                BM_Foundation
-              </span>
+          {/* LOGO + DESC */}
+          <div className="flex flex-col gap-4">
+            <Link to="/" className="flex items-center gap-3">
+              <img
+                src={Logo}
+                alt="BM Foundation"
+                className="w-12 h-12 object-contain"
+              />
+              <h2 className="text-lg font-extrabold text-[#f26522]">
+                BM Foundation
+              </h2>
             </Link>
 
-            <p className="text-blue-100 text-sm md:text-base leading-relaxed opacity-90">
-              Namathu Makkal Kazhagam (NMK) is a people-first political movement
-              committed to empowering communities, uplifting youth, and building
-              a stronger, united Tamil society.
+            <p className="text-sm text-slate-600 leading-relaxed max-w-sm">
+              BM Foundation is committed to education, social welfare, community
+              development, and empowering people to build a better tomorrow.
             </p>
 
-            {/* Social Icons */}
+            {/* SOCIAL */}
             <div className="flex gap-3 mt-2">
               {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
-                <a key={i} href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#D40000] hover:scale-110 transition-all duration-300 backdrop-blur-sm border border-white/10">
+                <a
+                  key={i}
+                  href="#"
+                  className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-slate-600 hover:bg-[#f26522] hover:text-white hover:border-[#f26522] transition"
+                >
                   <Icon size={16} />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* 🔴 Column 2: Quick Links */}
-          <div className="flex flex-col md:items-center text-sm space-y-3">
-            <h2 className="font-bold text-[#FCD200] text-lg mb-4 uppercase tracking-wide">
+          {/* LINKS */}
+          <div className="flex flex-col md:items-center gap-3">
+            <h3 className="text-sm font-bold uppercase tracking-wide text-slate-800 mb-2">
               Quick Links
-            </h2>
+            </h3>
 
-            <div className="flex flex-col gap-3 md:text-left">
-              {menuItems.map((item) => (
-                <Link
-                  key={item}
-                  to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                  className="text-blue-100 hover:text-[#FCD200] hover:translate-x-1 md:hover:translate-x-0 md:hover:scale-110 transition-all duration-300"
-                >
-                  {item}
-                </Link>
-              ))}
-            </div>
+            {menuItems.map((item) => (
+              <Link
+                key={item.label}
+                to={item.path}
+                className="text-sm text-slate-600 hover:text-[#f26522] transition"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
 
-          {/* 🟡 Column 3: Join Us & CTA */}
-          <div className="flex flex-col items-start md:items-end gap-4">
-            <h2 className="font-bold text-[#FCD200] text-lg mb-2 uppercase tracking-wide">
+          {/* CTA */}
+          <div className="flex flex-col md:items-end gap-4">
+            <h3 className="text-sm font-bold uppercase tracking-wide text-slate-800">
               Get Involved
-            </h2>
-            <p className="text-blue-200 text-sm md:text-right mb-2">
-                Join us in making a difference today.
+            </h3>
+
+            <p className="text-sm text-slate-600 md:text-right max-w-xs">
+              Join us and be a part of positive change in your community.
             </p>
 
-            <Link
-              to="/license"
-              className="inline-block bg-gradient-to-r from-[#D40000] to-[#b30000] border border-red-500 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-red-900/50 hover:scale-105 transition-all duration-300 relative overflow-hidden"
+            <button
+              onClick={() => navigate("/license")}
+              className="px-8 py-3 bg-[#f26522] hover:bg-[#d4541a] text-white rounded-full text-sm font-bold shadow-md transition"
             >
-              <span className="relative z-10">Join BM</span>
-            </Link>
+              Join as Volunteer
+            </button>
           </div>
         </div>
 
-        {/* Divider & Copyright */}
-        <div className="border-t border-white/10 mt-12 pt-6 text-center">
-          <p className="text-blue-200 text-sm">
+        {/* BOTTOM */}
+        <div className="border-t border-gray-200 mt-10 pt-6 text-center">
+          <p className="text-xs text-slate-500">
             © {new Date().getFullYear()}{" "}
             <a
               href="https://bmtechx.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#FCD200] hover:text-white hover:underline font-semibold transition-colors"
+              className="text-[#f26522] font-semibold hover:underline"
             >
-              BMTechx.in.
+              BMTechx.in
             </a>{" "}
-            All Rights Reserved.
+            — All Rights Reserved
           </p>
         </div>
       </div>
