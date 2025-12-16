@@ -1,0 +1,86 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+db.sqlite3-journal
+
+# Media files
+/media/
+*/media/
+
+# Static files collected
+/staticfiles/
+*/staticfiles/
+
+# Local settings
+local_settings.py
+.env
+.env.development
+.env.production
+
+# Django secret key
+/secrets.json
+
+# IDE stuff
+.vscode/
+.idea/
+*.swp
+
+# Python
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+ENV/
+.venv/
+venv.bak/
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+
+# Byte code
+__pycache__/
+*.py[cod]
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+logging/
+
+# virtualenv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Coverage / testing
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# Sentry
+.sentry-cli
+
+# Docker
+docker-compose.override.yml

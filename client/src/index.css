@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+.enrollment-steps {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif; /* Or any serif font you have */
+}
+
+.step-card {
+  transition: transform 0.3s ease;
+  border-bottom: 4px solid transparent;
+}
+
+.step-card:hover {
+  transform: translateY(-10px);
+  border-bottom: 4px solid #ff6600; /* Matching GiveWell Orange */
+}
+
+.step-card h3 {
+  color: #2c6e6e; /* Matching GiveWell Teal */
+}
