@@ -9,7 +9,7 @@ import {
   HiOutlineExclamationCircle,
   HiLogout
 } from "react-icons/hi";
-import logo from "../../../../assets/banner/nehru_logo.png";
+import logo from "../../../../assets/banner/BM_FOUNDATION _logo.png";
 
 const Sidebar = ({ isOpen, onClose, onLogout }) => {
   const links = [

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // Logo
-import logo from "../../../assets/banner/nehru_logo.png";
+import logo from "../../../assets/banner/BM_FOUNDATION _logo.png";
 
 export default function Login() {
   const navigate = useNavigate();
