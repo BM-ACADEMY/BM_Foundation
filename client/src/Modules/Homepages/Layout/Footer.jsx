@@ -11,7 +11,7 @@ const Footer = () => {
     { label: "Home", path: "/" },
     { label: "About Us", path: "/#about" },
     { label: "Volunteer", path: "/license" },
-    { label: "Download ID", path: "/membership-download" },
+    { label: "Download ID", path: "/license/download" },
     { label: "Contact", path: "/contact" },
   ];
 
