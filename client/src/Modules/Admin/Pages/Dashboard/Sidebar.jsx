@@ -1,25 +1,24 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import {
-  HiX,
-  HiPhotograph,
-  HiNewspaper,
-  HiViewGrid,
-  HiClipboardList,
-  HiOutlineExclamationCircle,
-  HiLogout
-} from "react-icons/hi";
+  X,
+  ClipboardList,
+  LogOut,
+  LayoutDashboard,
+  ShieldCheck
+} from "lucide-react";
 import logo from "../../../../assets/banner/BM_FOUNDATION _logo.png";
 
 const Sidebar = ({ isOpen, onClose, onLogout }) => {
   const links = [
-    { to: "/admin/license", label: "Memberships", icon: <HiClipboardList size={20} /> },
+    { to: "/admin/license", label: "Memberships", icon: <ClipboardList size={20} /> },
+    // You can add more admin links here later (e.g., Settings, Users)
   ];
 
   // Common classes for the sidebar container
   const sidebarClasses = `
-    fixed inset-y-0 left-0 z-50 w-72 bg-white text-gray-800 shadow-2xl transform transition-transform duration-300 ease-in-out
-    md:translate-x-0 md:static md:shadow-none border-r border-gray-100
+    fixed inset-y-0 left-0 z-50 w-72 bg-[#002d4b] text-white shadow-2xl transform transition-transform duration-300 ease-in-out
+    md:translate-x-0 md:static md:shadow-none border-r border-white/5
     ${isOpen ? "translate-x-0" : "-translate-x-full"}
   `;
 
@@ -28,43 +27,49 @@ const Sidebar = ({ isOpen, onClose, onLogout }) => {
       {/* Mobile Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 md:hidden"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
           onClick={onClose}
         />
       )}
 
       <aside className={sidebarClasses}>
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full relative overflow-hidden">
+
+          {/* Texture Overlay (Subtle) */}
+          <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
+
           {/* Header / Logo */}
-          <div className="h-24 flex items-center justify-between px-6 border-b border-gray-100">
+          <div className="relative z-10 h-24 flex items-center justify-between px-6 border-b border-white/10">
             <div className="flex items-center gap-3">
-              <img
-                src={logo}
-                alt="Logo"
-                className="w-10 h-10 rounded-full object-cover border-2 border-[#F7E27A]"
-              />
+              <div className="p-1 bg-white/10 rounded-full border border-white/20">
+                  <img
+                    src={logo}
+                    alt="Logo"
+                    className="w-10 h-10 object-contain"
+                  />
+              </div>
               <div>
-                <h1 className="font-bold text-lg leading-tight tracking-wide text-gray-900">
-                  BM_Foundation Admin
+                <h1 className="font-black text-lg leading-tight tracking-wide text-white uppercase">
+                  BM Admin
                 </h1>
-                <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-400">
-                  Dashboard
+                <span className="text-[10px] uppercase tracking-widest font-bold text-[#f2bc1c] flex items-center gap-1">
+                  <ShieldCheck size={10} /> Secure Portal
                 </span>
               </div>
             </div>
             {/* Mobile Close Button */}
             <button
               onClick={onClose}
-              className="md:hidden p-2 text-gray-500 hover:text-red-500 transition-colors"
+              className="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
             >
-              <HiX size={24} />
+              <X size={24} />
             </button>
           </div>
 
           {/* Navigation Links */}
-          <nav className="flex-1 overflow-y-auto py-6 px-4 space-y-2">
-            <p className="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
-              Menu
+          <nav className="relative z-10 flex-1 overflow-y-auto py-8 px-4 space-y-2">
+            <p className="px-4 text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4">
+              Main Menu
             </p>
             {links.map((item) => (
               <NavLink
@@ -72,31 +77,37 @@ const Sidebar = ({ isOpen, onClose, onLogout }) => {
                 to={item.to}
                 onClick={onClose} // Close sidebar on mobile when link clicked
                 className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group
+                  `flex items-center gap-3 px-4 py-3.5 rounded-lg transition-all duration-300 group relative overflow-hidden
                   ${
                     isActive
-                      ? "bg-[#F7E27A] text-gray-900 font-bold shadow-md shadow-yellow-200/50"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                      ? "bg-gradient-to-r from-[#f26522]/20 to-transparent text-[#f2bc1c] font-bold border-l-4 border-[#f26522]"
+                      : "text-gray-400 hover:bg-white/5 hover:text-white border-l-4 border-transparent"
                   }`
                 }
               >
-                {/* Icon wrapper to keep alignment perfect */}
-                <span className="shrink-0">{item.icon}</span>
-                <span className="text-sm font-medium">{item.label}</span>
+                {/* Icon wrapper */}
+                <span className="shrink-0 relative z-10 transition-transform duration-300 group-hover:scale-110">
+                    {item.icon}
+                </span>
+                <span className="text-sm font-medium tracking-wide relative z-10">
+                    {item.label}
+                </span>
               </NavLink>
             ))}
           </nav>
 
           {/* Footer / Logout Area */}
-          <div className="p-4 border-t border-gray-100 bg-gray-50/50">
+          <div className="relative z-10 p-4 border-t border-white/10 bg-[#00223d]">
             <button
               onClick={onLogout}
-              className="w-full flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 rounded-xl transition-all duration-200"
+              className="w-full flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-lg transition-all duration-200 group"
             >
-              <HiLogout size={20} />
-              <span className="text-sm font-semibold">Logout</span>
+              <LogOut size={20} className="group-hover:-translate-x-1 transition-transform" />
+              <span className="text-sm font-bold uppercase tracking-wider">Logout</span>
             </button>
-
+            <div className="mt-4 text-center">
+                <p className="text-[10px] text-gray-600">Admin Panel v1.0.0</p>
+            </div>
           </div>
         </div>
       </aside>
