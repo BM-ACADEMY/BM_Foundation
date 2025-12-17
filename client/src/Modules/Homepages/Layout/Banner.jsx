@@ -1,126 +1,107 @@
 import React from "react";
 import { motion } from "framer-motion";
-import image from "../../../assets/foundation.jpg"
+import image from "../../../assets/foundation.jpg"; // Your portrait image
 import { Link } from "react-router-dom";
+
 const Banner = () => {
   return (
-    <section className="mt-10 relative w-full min-h-[100vh] bg-white px-6 py-16 flex items-center overflow-hidden">
+    <section className="relative w-full min-h-[100vh] flex items-center overflow-hidden py-16 px-6">
 
-      {/* Left Vertical Indicator (Desktop only) */}
-      <div className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 flex-col items-center gap-6">
-        <span className="rotate-90 text-orange-600 font-bold tracking-[0.25em] text-xs uppercase">
-          Volunteer
-        </span>
-        <div className="flex flex-col gap-3 mt-16">
-          <span className="w-3 h-3 border border-gray-300"></span>
-          <span className="w-3 h-3 border border-gray-300"></span>
-          <span className="w-3 h-3 bg-orange-500 border-2 border-orange-500"></span>
-        </div>
+      {/* 1. BACKGROUND: Dynamic Gradient & Brush Effect */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#b38a11] via-[#1a1a1a] to-[#8b0000]">
+        {/* Brush Stroke Simulation */}
+        <div
+          className="absolute inset-0 opacity-40 mix-blend-overlay"
+          style={{
+            backgroundImage: `radial-gradient(circle at 70% 50%, rgba(255,215,0,0.3), transparent 70%)`,
+            clipPath: "polygon(0 15%, 100% 0, 100% 85%, 0% 100%)"
+          }}
+        />
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center w-full">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
 
         {/* ---------------- LEFT CONTENT ---------------- */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="order-2 lg:order-1"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="order-2 lg:order-1 text-white"
         >
-          <p className="uppercase tracking-widest text-sm text-orange-600 font-bold mb-4">
-            BM Foundation – Volunteer Enrollment & Orientation
-          </p>
-
-          <div className="flex items-center gap-5 mb-3">
-            <h1 className="text-5xl sm:text-6xl md:text-8xl font-serif font-black uppercase tracking-tighter text-slate-900">
-              Real
-            </h1>
-
-            <div className="w-14 h-14 bg-[#1a4d4a] rounded-full flex items-center justify-center text-white shadow-lg">
-              {/* Handshake Icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-8 h-8"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M11 17h2a2 2 0 1 0-2-2" />
-                <path d="m14 14 2.5 2.5a1 1 0 0 0 1.4-1.4L15 12.1" />
-                <path d="m8 16 1.5-1.5" />
-                <path d="M3 11c0-1.1.9-2 2-2h4m0 0 7-7 4 4-7 7M9 9l-3 3" />
-                <path d="M12 15h2a2 2 0 1 1-2 2" />
-              </svg>
-            </div>
-          </div>
-
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-serif font-black uppercase leading-[0.9] tracking-tighter text-slate-900 mb-6">
-            Change<br />Starts With Us
+          {/* Main Headline */}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black uppercase leading-[1.1] tracking-tight mb-4">
+            Together, we'll <br /> build a
+            <span className="text-[#f2bc1c] italic block sm:inline ml-0 sm:ml-4">future</span>
+            <br /> for everyone
           </h1>
 
-          <p className="text-gray-600 max-w-xl text-base sm:text-lg md:text-xl mb-10 leading-relaxed">
-            Namma ooru-ku, namma makkal-ku <b>real change</b> bring panna
-            <span className="text-gray-800 font-semibold"> BM Foundation-la join pannunga.</span>
-            <br /><br />
-            Community upliftment, public issues, education, health, food support,
-            job guidance, disaster relief — <b>ellathukum unga support romba thevai.</b>
+          <p className="text-gray-200 max-w-xl text-lg md:text-xl mb-10 leading-relaxed font-medium">
+             Namma ooru-ku, namma makkal-ku <span className="text-white font-bold underline decoration-[#f26522]">real change</span> bring panna BM Foundation-la join pannunga.
           </p>
 
-          <Link to="/license">
-  <motion.button
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.97 }}
-    className="bg-[#f26522] hover:bg-[#d4541a] text-white px-10 py-4 rounded-full font-bold text-lg flex items-center gap-3 shadow-xl"
-  >
-    Join as a Volunteer
-    <span>→</span>
-  </motion.button>
-</Link>
+          {/* QR Code and App Section */}
+          <div className="space-y-6">
+            <p className="text-sm tracking-[0.2em] font-bold text-[#f2bc1c] uppercase">
+              // Scan the QR Code to join us //
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <div className="bg-white p-2 rounded-lg shadow-2xl">
+                <img
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=BMFOUNDATION"
+                  alt="QR Code"
+                  className="w-28 h-28"
+                />
+              </div>
+
+              <Link to="/license">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-[#f26522] hover:bg-white hover:text-[#f26522] text-white px-8 py-4 rounded-md font-black text-xl uppercase transition-all shadow-xl"
+                >
+                  Join as a Volunteer →
+                </motion.button>
+              </Link>
+            </div>
+          </div>
         </motion.div>
 
         {/* ---------------- RIGHT IMAGE ---------------- */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          initial={{ opacity: 0, scale: 0.9, x: 50 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
           className="relative order-1 lg:order-2 flex justify-center lg:justify-end"
         >
-          {/* Hexagon Image */}
-          <div
-            className="w-[280px] h-[320px] sm:w-[360px] sm:h-[420px] md:w-[500px] md:h-[550px] bg-gray-100 overflow-hidden"
-            style={{
-              clipPath:
-                "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-            }}
-          >
-            <img
-  src={image}
-  alt="BM Foundation Work"
-  className="w-full h-full object-cover"
-/>
+          {/* Portrait Container - Removed Hexagon for the Reference Style */}
+          <div className="relative w-[300px] h-[400px] sm:w-[400px] sm:h-[500px] md:w-[500px] md:h-[600px]">
+            {/* Red/Yellow Accent "Brush" behind person */}
+            <div className="absolute inset-0 bg-gradient-to-t from-red-600/50 to-transparent rounded-full blur-3xl -z-10" />
 
+            <img
+              src={image}
+              alt="BM Foundation Leader"
+              className="w-full h-full object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.6)]"
+            />
           </div>
 
-          {/* Floating Info Card */}
+          {/* Floating Label (Campaign Style) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="absolute -bottom-6 right-0 sm:right-6 bg-white p-5 rounded-xl shadow-2xl border min-w-[260px]"
+            transition={{ delay: 1 }}
+            className="absolute bottom-10 right-0 bg-black/60 backdrop-blur-md border-l-4 border-[#f2bc1c] p-4 text-white hidden md:block"
           >
-            <p className="font-bold text-gray-800 text-lg">
-              Community Impact
-            </p>
-            <p className="text-sm text-gray-500 mt-2">
-              Education • Health • Food • Jobs • Disaster Relief
-            </p>
+            <p className="font-bold uppercase tracking-widest text-xs">Foundation Leader</p>
+            <p className="text-xl font-black uppercase">Change starts here</p>
           </motion.div>
         </motion.div>
 
       </div>
+
+      {/* Subtle Bottom Accent Line */}
+      <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-[#f26522] via-[#f2bc1c] to-[#8b0000]" />
     </section>
   );
 };

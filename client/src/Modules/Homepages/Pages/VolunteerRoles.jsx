@@ -9,6 +9,7 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { Link } from "react-router-dom";
+
 const roles = [
   {
     title: "Field Volunteer",
@@ -39,89 +40,73 @@ const roles = [
 
 const VolunteerRoles = () => {
   return (
-    <section className="bg-gray-50 py-24 px-6 lg:px-24">
+    <section className="bg-[#fcfcfc] py-24 px-6 lg:px-24 font-sans">
       <div className="max-w-7xl mx-auto">
-
         {/* Header */}
-        <div className="mb-16 border-l-8 border-[#f26522] pl-6">
-          <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-gray-500 mb-2">
-            Opportunities
-          </h2>
-          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight text-slate-900 leading-none">
-            Volunteer <br />
-            <span className="text-[#1a4d4a]">Roles</span>
+        <div className="text-center mb-16">
+          <h1 className="text-3xl md:text-5xl font-bold text-[#002d4b] leading-tight">
+            Empowering our team through unity, purpose, and <br className="hidden md:block" />
+            <span className="text-[#d4a017]">Volunteer</span> Roles
           </h1>
         </div>
 
         {/* Roles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {roles.map((role, index) => {
-            const isFeatured = index === roles.length - 1;
-
-            return (
-              <motion.div
-                key={index}
-                whileHover={{ y: -8 }}
-                transition={{ type: "spring", stiffness: 200 }}
-                className={`p-8 rounded-2xl border transition-all duration-300 flex flex-col justify-between
-                  ${
-                    isFeatured
-                      ? "bg-[#1a4d4a] text-white shadow-xl border-transparent"
-                      : "bg-white text-slate-900 border-gray-200 hover:shadow-xl"
-                  }`}
-              >
-                <div>
-                  <div
-                    className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6
-                      ${
-                        isFeatured
-                          ? "bg-[#f26522] text-white"
-                          : "bg-gray-100 text-[#1a4d4a]"
-                      }`}
-                  >
-                    {role.icon}
-                  </div>
-
-                  <h3 className="text-2xl font-black uppercase mb-4 leading-tight">
-                    {role.title}
-                  </h3>
-
-                  <p
-                    className={`text-sm leading-relaxed mb-6
-                      ${isFeatured ? "text-gray-200" : "text-gray-600"}`}
-                  >
-                    {role.desc}
-                  </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {roles.map((role, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.2 }}
+              // 1. ADD 'group' HERE
+              className="group bg-white hover:bg-[#002d4b] transition-colors duration-300 p-10 rounded-sm border border-gray-300 shadow-sm flex flex-col items-center text-center"
+            >
+              {/* Icon Container */}
+              <div className="w-20 h-20 rounded-full border border-gray-100 bg-gray-50 flex items-center justify-center mb-8 shadow-inner">
+                <div className="w-16 h-16 rounded-full border border-gray-200 flex items-center justify-center bg-white text-[#d4a017]">
+                  {role.icon}
                 </div>
+              </div>
 
-                <div className="flex items-center gap-2 font-bold text-xs uppercase tracking-widest text-[#f26522]">
-                  <CheckCircle2 size={16} />
-                  Available Now
-                </div>
-              </motion.div>
-            );
-          })}
+              {/* Title */}
+              {/* 2. ADD 'group-hover:text-white' HERE */}
+              <h3 className="text-xl font-bold text-[#002d4b] group-hover:text-white mb-4 transition-colors duration-300">
+                {role.title}
+              </h3>
+
+              {/* Description */}
+              {/* 3. ADD 'group-hover:text-blue-50' HERE (blue-50 looks softer than pure white on dark blue) */}
+              <p className="text-gray-500 group-hover:text-blue-50 leading-relaxed text-base mb-6 transition-colors duration-300">
+                {role.desc}
+              </p>
+
+              {/* Status Indicator */}
+              <div className="mt-auto flex items-center gap-2 font-semibold text-[10px] uppercase tracking-[0.2em] text-[#d4a017]">
+                <CheckCircle2 size={14} />
+                Available Now
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Bottom CTA – matches Banner CTA */}
-        <div className="mt-24 bg-white rounded-3xl p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl border">
+        {/* Bottom CTA Section */}
+        <div className="mt-24 bg-[#002d4b] rounded-2xl p-12 flex flex-col md:flex-row items-center justify-between gap-10 shadow-xl">
           <div className="text-center md:text-left">
-            <h2 className="text-slate-900 text-3xl md:text-5xl font-black uppercase leading-tight">
+            <h2 className="text-white text-3xl md:text-4xl font-bold leading-tight">
               Ready to make <br />
-              <span className="text-[#f26522]">Real Change?</span>
+              <span className="text-[#d4a017]">Real Change?</span>
             </h2>
-            <p className="text-gray-600 mt-4 text-lg">
+            <p className="text-blue-100/80 mt-4 text-lg">
               BM Foundation-oda change journey-la neengalum part aagunga.
             </p>
           </div>
-        <Link to="/license">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className="bg-[#f26522] hover:bg-[#d4541a] text-white px-12 py-5 rounded-full font-bold text-lg shadow-xl"
-          >
-            Join as a Volunteer →
-          </motion.button>
+          <Link to="/license">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="bg-[#d4a017] hover:bg-[#b88a14] text-white px-10 py-4 rounded-md font-bold text-lg shadow-lg transition-colors"
+            >
+              Join as a Volunteer →
+            </motion.button>
           </Link>
         </div>
       </div>
