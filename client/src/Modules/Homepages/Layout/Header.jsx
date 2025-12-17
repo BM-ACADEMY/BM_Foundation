@@ -62,7 +62,7 @@ const Header = () => {
       }`}
     >
       {/* Top Gradient Line (Matches Banner) */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#b38a11] via-[#1a1a1a] to-[#8b0000]" />
+      <div className="absolute top-0 left-0 w-full  bg-gradient-to-r from-[#b38a11] via-[#1a1a1a] to-[#8b0000]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
