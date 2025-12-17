@@ -13,7 +13,7 @@ const Header = () => {
     { label: "Home", path: "/" },
     { label: "About", path: "/#about" },
     { label: "Volunteer", path: "/license" }, // Direct link to volunteer page
-    { label: "Download ID", path: "/membership-download" }, // Assuming this route exists now
+    { label: "Download ID", path: "/license/download" }, // Assuming this route exists now
     { label: "Contact", path: "/contact" },
   ];
 
