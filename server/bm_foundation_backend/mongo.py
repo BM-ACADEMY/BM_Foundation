@@ -1,4 +1,4 @@
-# nehru_backend/mongo.py
+# bm_foundation_backend/mongo.py
 import os
 from pymongo import MongoClient
 from dotenv import load_dotenv

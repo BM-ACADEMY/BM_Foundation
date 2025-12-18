@@ -10,7 +10,7 @@ from rest_framework.decorators import action
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 
-from nehru_backend.mongo import db
+from bm_foundation_backend.mongo import db
 
 
 # ----------------------------------------------------

@@ -1,1 +1,2 @@
-web: gunicorn nehru_backend.wsgi:application
+web: gunicorn bm_foundation_backend.wsgi:application
+

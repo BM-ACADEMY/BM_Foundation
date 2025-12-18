@@ -19,7 +19,7 @@ if PROJECT_ROOT not in sys.path:
 # ----------------------------
 # Django settings module
 # ----------------------------
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'nehru_backend.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bm_foundation_backend.settings')
 
 # ----------------------------
 # WSGI application

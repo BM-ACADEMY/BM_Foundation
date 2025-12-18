@@ -1,4 +1,4 @@
-# nehru_backend/__init__.py
+# bm_foundation_backend/__init__.py
 import os
 from pymongo import MongoClient
 from django.conf import settings

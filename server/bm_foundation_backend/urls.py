@@ -7,8 +7,8 @@ from .views import home
 urlpatterns = [
     path("", home, name="home"),
     path("admin-django/", admin.site.urls),
-    path("api/accounts/", include("nehru_backend.accounts.urls")),
-    path("api/license/", include("nehru_backend.license.urls")),
+    path("api/accounts/", include("bm_foundation_backend.accounts.urls")),
+    path("api/license/", include("bm_foundation_backend.license.urls")),
 ]
 
 # 🔥 FORCE media serving (Windows-safe, Django-version-safe)

@@ -1,4 +1,4 @@
-# nehru_backend/settings.py
+# bm_foundation_backend/settings.py
 
 import os
 from pathlib import Path
@@ -58,8 +58,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
 
     # Local apps
-'nehru_backend.license',
-'nehru_backend.accounts',
+'bm_foundation_backend.license',
+'bm_foundation_backend.accounts',
 
 
 ]
@@ -81,14 +81,14 @@ MIDDLEWARE = [
 # -----------------------------
 # URL Configuration
 # -----------------------------
-ROOT_URLCONF = 'nehru_backend.urls'
+ROOT_URLCONF = 'bm_foundation_backend.urls'
 # -----------------------------
 # Templates
 # -----------------------------
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates", BASE_DIR / "nehru_backend" / "templates"],  # ✅ Add both paths
+        'DIRS': [BASE_DIR / "templates", BASE_DIR / "bm_foundation_backend" / "templates"],  # ✅ Add both paths
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,7 +105,7 @@ TEMPLATES = [
 # -----------------------------
 # WSGI
 # -----------------------------
-WSGI_APPLICATION = 'nehru_backend.wsgi.application'
+WSGI_APPLICATION = 'bm_foundation_backend.wsgi.application'
 # -----------------------------
 # Database
 # -----------------------------
@@ -176,7 +176,7 @@ USE_TZ = True
 # -----------------------------
 # Static files
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "nehru_backend", "static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "bm_foundation_backend", "static")]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Media files (user uploads)
