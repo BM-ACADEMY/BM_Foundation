@@ -78,13 +78,14 @@ const Banner = () => {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <div className="bg-white p-2 rounded-lg shadow-2xl">
-                <img
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=BMFOUNDATION"
-                  alt="QR Code"
-                  className="w-28 h-28"
-                  // Optimization: Add lazy loading to non-critical images
-                  loading="lazy"
-                />
+                <Link to="/license" className="bg-white p-2 rounded-lg shadow-2xl cursor-pointer block">
+  <img
+    src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(window.location.origin + "/license")}`}
+    alt="QR Code"
+    className="w-28 h-28"
+    loading="lazy"
+  />
+</Link>
               </div>
 
               <Link to="/license">

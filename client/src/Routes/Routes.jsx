@@ -38,6 +38,7 @@ import License from "../Modules/Homepages/Pages/License";
 import LicenseDownload from "../Modules/Homepages/Pages/LicenseDownload";
 import Contact from "../Modules/Homepages/Pages/Contact";
 import LicenseCardPdfWrapper from "../Modules/Homepages/Pages/LicenseCardPdfWrapper";
+import Gallery from "../Modules/Homepages/Pages/Gallery";
 
 const AppRoutes = () => {
   return (
@@ -85,6 +86,14 @@ const AppRoutes = () => {
           element={
             <Layout>
               <LicenseDownload />
+            </Layout>
+          }
+        />
+        <Route
+          path="/Gallery"
+          element={
+            <Layout>
+              <Gallery />
             </Layout>
           }
         />

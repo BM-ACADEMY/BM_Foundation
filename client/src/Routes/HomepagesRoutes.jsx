@@ -8,6 +8,7 @@ import LicenseDownload from "../Modules/Homepages/Pages/LicenseDownload";
 import Banner from "../Modules/Homepages/Layout/Banner";
 import VolunteerRoles from "../Modules/Homepages/Pages/VolunteerRoles";
 import NextSteps from "../Modules/Homepages/Pages/NextSteps";
+import Gallery from "../Modules/Homepages/Pages/Gallery";
 
 const HomepagesRoutes = () => {
   return (
