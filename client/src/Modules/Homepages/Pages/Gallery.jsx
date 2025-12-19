@@ -7,6 +7,12 @@ import image1 from "../../../assets/Foundation/bmf1 (1).jpg";
 import image2 from "../../../assets/Foundation/bmf12 (1).jpg";
 import image3 from "../../../assets/Foundation/bmf2 (1).jpg";
 import image4 from "../../../assets/Foundation/bmf3_11zon.jpg"
+import image5 from "../../../assets/Foundation/bmf4_11zon.jpg"
+import image6 from "../../../assets/Foundation/bmf5_11zon.jpg"
+import image7 from "../../../assets/Foundation/bmf6_11zon.jpg"
+import image8 from "../../../assets/Foundation/bmf7_11zon.jpg"
+import image9 from "../../../assets/Foundation/bmf8_11zon.jpg"
+
 
 // ----------------------------------------------------------------------
 // 1. GALLERY DATA (Using imported images)
@@ -39,25 +45,31 @@ const galleryData = [
   {
     id: 5,
     category: "Events",
-    // src: image2,
+    src: image5,
     title: "Volunteer Meetup",
   },
   {
     id: 6,
     category: "Education",
-    // src: image3,
+    src: image6,
     title: "Computer Literacy Workshop",
   },
   {
     id: 7,
     category: "Medical",
-    // src: image1,
+    src: image7,
     title: "Blood Donation Camp",
   },
   {
     id: 8,
     category: "Community",
-    // src: image2,
+    src: image8,
+    title: "Village Development Project",
+  },
+  {
+    id: 8,
+    category: "Community",
+    src: image9,
     title: "Village Development Project",
   },
 ];
