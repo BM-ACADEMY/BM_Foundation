@@ -36,8 +36,8 @@ const Footer = () => {
           {/* --- COL 1: BRANDING --- */}
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="bg-white p-2 rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300">
-                <img src={Logo} alt="BM Foundation" className="w-10 h-10 object-contain" />
+              <div className=" shadow-lg group-hover:scale-105 transition-transform duration-300">
+                <img src={Logo} alt="BM Foundation" className=" h-10 object-contain" />
               </div>
               <div>
                 <h2 className="text-2xl font-black uppercase tracking-wider leading-none">
@@ -119,15 +119,15 @@ const Footer = () => {
             <ul className="space-y-4 text-sm text-gray-300">
               <li className="flex gap-3">
                 <MapPin size={18} className="text-[#f26522]" />
-                <span>123, Main Road, Namma Ooru,<br />Tamil Nadu - 600001</span>
+                <span>252, M.G Road, kottakuppam,<br />Tamil Nadu - 605104</span>
               </li>
               <li className="flex gap-3">
                 <Phone size={18} className="text-[#f26522]" />
-                <span>+91 98765 43210</span>
+                <span>+91 9944940051</span>
               </li>
               <li className="flex gap-3">
                 <Mail size={18} className="text-[#f26522]" />
-                <span>support@bmfoundation.org</span>
+                <span>admin@abmgroups.org</span>
               </li>
             </ul>
           </div>

@@ -12,6 +12,8 @@ import image6 from "../../../assets/Foundation/bmf5_11zon.jpg"
 import image7 from "../../../assets/Foundation/bmf6_11zon.jpg"
 import image8 from "../../../assets/Foundation/bmf7_11zon.jpg"
 import image9 from "../../../assets/Foundation/bmf8_11zon.jpg"
+import image10 from "../../../assets/Foundation/bmf9_11zon.jpg"
+import image11 from "../../../assets/Foundation/bmf10_11zon.jpg"
 
 
 // ----------------------------------------------------------------------
@@ -22,13 +24,13 @@ const galleryData = [
     id: 1,
     category: "Events",
     src: image1,
-    title: "Annual Charity Gala",
+    title: "Seed distribution",
   },
   {
     id: 2,
-    category: "Education",
+    category: "Events",
     src: image2,
-    title: "School Supplies Distribution",
+    title: "Seed distribution",
   },
   {
     id: 3,
@@ -40,41 +42,17 @@ const galleryData = [
     id: 4,
     category: "Community",
     src: image4,
-    title: "Food Donation Drive",
+    title: "",
   },
   {
     id: 5,
     category: "Events",
     src: image5,
-    title: "Volunteer Meetup",
-  },
-  {
-    id: 6,
-    category: "Education",
-    src: image6,
-    title: "Computer Literacy Workshop",
-  },
-  {
-    id: 7,
-    category: "Medical",
-    src: image7,
-    title: "Blood Donation Camp",
-  },
-  {
-    id: 8,
-    category: "Community",
-    src: image8,
-    title: "Village Development Project",
-  },
-  {
-    id: 8,
-    category: "Community",
-    src: image9,
-    title: "Village Development Project",
+    title: "Kasayam Distribution",
   },
 ];
 
-const categories = ["All", "Education", "Medical", "Community", "Events"];
+const categories = ["All", "Community", "Events"];
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");

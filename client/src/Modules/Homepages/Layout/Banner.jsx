@@ -1,8 +1,7 @@
 import React, { memo } from "react";
 import { motion } from "framer-motion";
-import image from "../../../assets/foundation.jpg"; // Ensure this image is optimized (e.g., WebP, < 500KB)
+import image from "../../../assets/Foundation/bmfv.png"; // Ensure this image is optimized (e.g., WebP, < 500KB)
 import { Link } from "react-router-dom";
-
 // 1. Define Animation Variants outside the component
 // This prevents re-creating objects on every render, saving memory.
 const fadeInUp = {
