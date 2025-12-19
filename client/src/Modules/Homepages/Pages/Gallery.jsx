@@ -3,9 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn, Filter } from "lucide-react";
 
 // Importing local images
-import image1 from "../../../assets/Foundation/bmfoundation1.jpg";
-import image2 from "../../../assets/Foundation/bmfoundation2.png";
-import image3 from "../../../assets/Foundation/bmfoundation3.png";
+import image1 from "../../../assets/Foundation/bmf1 (1).jpg";
+import image2 from "../../../assets/Foundation/bmf12 (1).jpg";
+import image3 from "../../../assets/Foundation/bmf2 (1).jpg";
+import image4 from "../../../assets/Foundation/bmf3_11zon.jpg"
 
 // ----------------------------------------------------------------------
 // 1. GALLERY DATA (Using imported images)
@@ -14,25 +15,25 @@ const galleryData = [
   {
     id: 1,
     category: "Events",
-    // src: image1,
+    src: image1,
     title: "Annual Charity Gala",
   },
   {
     id: 2,
     category: "Education",
-    // src: image2,
+    src: image2,
     title: "School Supplies Distribution",
   },
   {
     id: 3,
     category: "Medical",
-    // src: image3,
+    src: image3,
     title: "Free Health Checkup Camp",
   },
   {
     id: 4,
     category: "Community",
-    // src: image1,
+    src: image4,
     title: "Food Donation Drive",
   },
   {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Menu, X, HeartHandshake } from "lucide-react"; // Using Lucide icons for a cleaner look
-import logo from "../../../assets/banner/BM_FOUNDATION _logo.png";
+import logo from "../../../assets/Foundation/bmf_logo.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
