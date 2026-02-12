@@ -1,147 +1,215 @@
 import React, { memo } from "react";
 import { motion } from "framer-motion";
-import image from "../../../assets/Foundation/bmfv.png"; // Ensure this image is optimized (e.g., WebP, < 500KB)
+import image from "../../../assets/bm foundation.jpg.jpeg"; 
 import { Link } from "react-router-dom";
-// 1. Define Animation Variants outside the component
-// This prevents re-creating objects on every render, saving memory.
+
 const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
-};
-
-const slideInLeft = {
-  hidden: { opacity: 0, x: -50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.8, ease: "easeOut" }
-  }
-};
-
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.9, x: 50 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    x: 0,
-    transition: { duration: 0.8, ease: "easeOut" }
-  }
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.8, ease: "easeOut" } 
+  },
 };
 
 const Banner = () => {
+  const qrUrl = encodeURIComponent(window.location.origin + "/license");
+
   return (
-    <section className="relative w-full min-h-[100vh] flex items-center overflow-hidden py-16 px-6">
-
-      {/* BACKGROUND */}
-      {/* Optimization: Ensure gradients are simple. Complex blends can cause repaint lag. */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#b38a11] via-[#1a1a1a] to-[#8b0000]">
-        <div
-          className="absolute inset-0 opacity-40 mix-blend-overlay"
-          style={{
-            backgroundImage: `radial-gradient(circle at 70% 50%, rgba(255,215,0,0.3), transparent 70%)`,
-            clipPath: "polygon(0 15%, 100% 0, 100% 85%, 0% 100%)",
-            // Static elements don't need 'will-change', but keeping the DOM light helps.
-          }}
-        />
+    <section className="relative w-full min-h-screen flex items-center bg-black overflow-hidden">
+      
+      {/* ---------------- 1. BLENDED IMAGE BACKGROUND ---------------- */}
+      {/* The image is positioned to the right, but fades out to the left */}
+      <div className="absolute top-0 right-0 w-full md:w-[70%] h-full z-0">
+        <div 
+          className="w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${image})` }}
+        >
+           {/* Gradient Mask: Fades the image into black on the left & bottom */}
+           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
+           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+        </div>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
-
-        {/* ---------------- LEFT CONTENT ---------------- */}
-        <motion.div
-          variants={slideInLeft}
+      {/* ---------------- 2. CONTENT CONTENT ---------------- */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 w-full relative z-10 pt-20">
+        <motion.div 
+          className="max-w-2xl"
           initial="hidden"
-          animate="visible"
-          // PERFORMANCE FIX: Hint browser to use GPU
-          style={{ willChange: "transform, opacity" }}
-          className="order-2 lg:order-1 text-white"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ staggerChildren: 0.2 }}
         >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black uppercase leading-[1.1] tracking-tight mb-4">
-            Together, we'll <br /> build a
-            <span className="text-[#f2bc1c] italic block sm:inline ml-0 sm:ml-4">future</span>
-            <br /> for everyone
-          </h1>
-
-          <p className="text-gray-200 max-w-xl text-lg md:text-xl mb-10 leading-relaxed font-medium">
-             Namma ooru-ku, namma makkal-ku <span className="text-white font-bold underline decoration-[#f26522]">real change</span> bring panna BM Foundation-la join pannunga.
-          </p>
-
-          <div className="space-y-6">
-            <p className="text-sm tracking-[0.2em] font-bold text-[#f2bc1c] uppercase">
-              // Scan the QR Code to join us //
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <div className="bg-white p-2 rounded-lg shadow-2xl">
-                <Link to="/license" className="bg-white p-2 rounded-lg shadow-2xl cursor-pointer block">
-  <img
-    src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(window.location.origin + "/license")}`}
-    alt="QR Code"
-    className="w-28 h-28"
-    loading="lazy"
-  />
-</Link>
-              </div>
-
-              <Link to="/license">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  // PERFORMANCE FIX: transform: translateZ(0) forces hardware acceleration on some browsers
-                  style={{ transform: "translateZ(0)", willChange: "transform" }}
-                  className="bg-[#f26522] hover:bg-white hover:text-[#f26522] text-white px-8 py-4 rounded-md font-black text-xl uppercase transition-colors shadow-xl"
-                >
-                  Join as a Volunteer →
-                </motion.button>
-              </Link>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* ---------------- RIGHT IMAGE ---------------- */}
-        <motion.div
-          variants={scaleIn}
-          initial="hidden"
-          animate="visible"
-          style={{ willChange: "transform, opacity" }}
-          className="relative order-1 lg:order-2 flex justify-center lg:justify-end"
-        >
-          <div className="relative w-[300px] h-[400px] sm:w-[400px] sm:h-[500px] md:w-[500px] md:h-[600px]">
-            {/* PERFORMANCE NOTE: Large blur areas (blur-3xl) are expensive.
-                If lag persists, try removing this div or using a static blurred PNG image instead of CSS blur. */}
-            <div className="absolute inset-0 bg-gradient-to-t from-red-600/50 to-transparent rounded-full blur-3xl -z-10" />
-
-            <img
-              src={image}
-              alt="BM Foundation Leader"
-              // Optimization: Use decoding="async" for smoother painting
-              decoding="async"
-              className="w-full h-full object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.6)]"
-            />
-          </div>
-
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            animate="visible"
-            style={{ willChange: "transform, opacity" }}
-            className="absolute bottom-10 right-0 bg-black/60 backdrop-blur-md border-l-4 border-[#f2bc1c] p-4 text-white hidden md:block"
-          >
-            <p className="font-bold uppercase tracking-widest text-xs">Foundation Leader</p>
-            <p className="text-xl font-black uppercase">Change starts here</p>
+          
+          {/* Badge */}
+          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-700 bg-gray-900/50 backdrop-blur-md mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#f2bc1c] animate-pulse" />
+            <span className="text-gray-300 text-xs font-bold uppercase tracking-widest">
+              BM Foundation
+            </span>
           </motion.div>
+
+          {/* Heading */}
+          <motion.h1 variants={fadeInUp} className="text-5xl sm:text-7xl font-bold text-white leading-[1.1] mb-6">
+            Together, we <br />
+            create a <span className="text-[#f2bc1c]">future</span> <br />
+            where everyone matters.
+          </motion.h1>
+
+          {/* Description */}
+          <motion.p variants={fadeInUp} className="text-gray-400 text-lg mb-10 leading-relaxed border-l-2 border-[#f26522] pl-6 max-w-lg">
+             Namma ooru-ku, namma makkal-ku <span className="text-white font-semibold">real change</span> create panna BM Foundation-la join pannunga.
+          </motion.p>
+
+          {/* Buttons & Actions */}
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+            
+            {/* Main Button */}
+            <Link to="/license">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-[#f26522] text-white px-8 py-4 rounded-lg font-bold text-lg uppercase tracking-wider shadow-lg shadow-[#f26522]/20 hover:bg-[#d9531e] transition-colors"
+              >
+                Become a Volunteer
+              </motion.button>
+            </Link>
+
+            {/* QR Code Block */}
+            <div className="flex items-center gap-4 group">
+               <div className="p-1 bg-white rounded-lg opacity-90 group-hover:opacity-100 transition-opacity">
+                 <Link to="/license">
+                   <img
+                    src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${qrUrl}`}
+                    alt="Scan"
+                    className="w-14 h-14"
+                   />
+                 </Link>
+               </div>
+               <div>
+                 <p className="text-white text-sm font-bold uppercase">Scan to Join</p>
+                 <p className="text-gray-500 text-xs">Instant Access</p>
+               </div>
+            </div>
+
+          </motion.div>
+
         </motion.div>
-
       </div>
-
-      <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-[#f26522] via-[#f2bc1c] to-[#8b0000]" />
+      
     </section>
   );
 };
 
-// Optimization: Prevent unnecessary re-renders of the entire Banner
 export default memo(Banner);
+
+
+
+// import React, { memo } from "react";
+// import { motion } from "framer-motion";
+// import image from "../../../assets/bm foundation.jpg.jpeg"; 
+// import { Link } from "react-router-dom";
+
+// const fadeInUp = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0, 
+//     transition: { duration: 0.8, ease: "easeOut" } 
+//   },
+// };
+
+// const Banner = () => {
+//   const qrUrl = encodeURIComponent(window.location.origin + "/license");
+
+//   return (
+//     <section className="relative w-full h-screen min-h-[600px] flex items-center overflow-hidden">
+      
+//       {/* 1. FULL BACKGROUND IMAGE */}
+//       {/* Changed w-[70%] to w-full so the image spans the whole screen */}
+//       <div className="absolute inset-0 w-full h-full">
+//         <div 
+//           className="w-full h-full bg-cover bg-center bg-no-repeat"
+//           style={{ backgroundImage: `url(${image})` }}
+//         />
+        
+//         {/* 2. GRADIENT OVERLAY (Crucial for text readability) */}
+//         {/* Dark on the left (90% opacity) -> Fades to transparent on the right */}
+//         {/* This allows you to see the people BEHIND the text, but keeps the text readable */}
+//         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
+        
+//         {/* Optional: Bottom fade to blend with footer/next section */}
+//         <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-black/80 to-transparent" />
+//       </div>
+
+//       {/* 3. CONTENT */}
+//       <div className="max-w-7xl mx-auto px-6 sm:px-12 w-full relative z-10 pt-10">
+//         <motion.div 
+//           className="max-w-xl md:max-w-2xl"
+//           initial="hidden"
+//           whileInView="visible"
+//           viewport={{ once: true }}
+//           transition={{ staggerChildren: 0.2 }}
+//         >
+          
+//           {/* Badge */}
+//           <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-black/30 backdrop-blur-md mb-6">
+//             <span className="w-2 h-2 rounded-full bg-[#f2bc1c] animate-pulse" />
+//             <span className="text-[#f2bc1c] text-xs font-bold uppercase tracking-widest">
+//               BM Foundation
+//             </span>
+//           </motion.div>
+
+//           {/* Heading */}
+//           <motion.h1 variants={fadeInUp} className="text-5xl sm:text-7xl font-bold text-white leading-[1.1] mb-6 drop-shadow-lg">
+//             Together, we <br />
+//             create a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f2bc1c] to-[#f26522]">future</span> <br />
+//             where everyone matters.
+//           </motion.h1>
+
+//           {/* Description */}
+//           <motion.p variants={fadeInUp} className="text-gray-200 text-lg mb-10 leading-relaxed border-l-4 border-[#f26522] pl-6 drop-shadow-md font-medium">
+//              Namma ooru-ku, namma makkal-ku <span className="text-white font-bold underline decoration-[#f2bc1c]">real change</span> create panna BM Foundation-la join pannunga.
+//           </motion.p>
+
+//           {/* Buttons & Actions */}
+//           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+            
+//             {/* Main Button */}
+//             <Link to="/license">
+//               <motion.button 
+//                 whileHover={{ scale: 1.05 }}
+//                 whileTap={{ scale: 0.95 }}
+//                 className="bg-[#f26522] text-white px-8 py-4 rounded-lg font-bold text-lg uppercase tracking-wider shadow-[0_0_20px_rgba(242,101,34,0.4)] hover:bg-[#d9531e] transition-all"
+//               >
+//                 Become a Volunteer
+//               </motion.button>
+//             </Link>
+
+//             {/* QR Code Block */}
+//             <div className="flex items-center gap-4 group bg-black/40 p-2 rounded-xl backdrop-blur-sm border border-white/10">
+//                <div className="bg-white p-1 rounded-lg">
+//                  <Link to="/license">
+//                    <img
+//                     src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${qrUrl}`}
+//                     alt="Scan"
+//                     className="w-12 h-12"
+//                    />
+//                  </Link>
+//                </div>
+//                <div className="pr-2">
+//                  <p className="text-white text-xs font-bold uppercase">Scan to Join</p>
+//                  <p className="text-[#f2bc1c] text-[10px] tracking-wide">Instant Access</p>
+//                </div>
+//             </div>
+
+//           </motion.div>
+
+//         </motion.div>
+//       </div>
+      
+//     </section>
+//   );
+// };
+
+// export default memo(Banner);

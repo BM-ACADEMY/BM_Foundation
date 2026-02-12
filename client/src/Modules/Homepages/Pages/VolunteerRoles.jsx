@@ -14,27 +14,27 @@ const roles = [
   {
     title: "Field Volunteer",
     icon: <Users size={28} />,
-    desc: "Direct ground-level action for food, health, and relief."
+    desc: "Ground-level support in food distribution, health drives & relief work."
   },
   {
     title: "Event Helper",
     icon: <Calendar size={28} />,
-    desc: "Support our medical camps, help desks, and awareness events."
+    desc: "Assist in medical camps, help desks & community awareness events."
   },
   {
     title: "Digital Support",
     icon: <Monitor size={28} />,
-    desc: "Help with job guidance, online petitions, and social media."
+    desc: "Support job guidance, online campaigns, petitions & social media outreach."
   },
   {
     title: "Public Issue Reporter",
     icon: <Megaphone size={28} />,
-    desc: "Identify and report local issues like water, roads, and safety."
+    desc: "Identify and report local issues like water, roads & public safety."
   },
   {
     title: "Any Role",
     icon: <UserPlus size={28} />,
-    desc: "Neenga choose pannunga — unga comfort-ku set aagura role."
+    desc: "Choose a role based on your comfort, time & interest."
   }
 ];
 
@@ -45,8 +45,7 @@ const VolunteerRoles = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-3xl md:text-5xl font-bold text-[#002d4b] leading-tight">
-            Empowering our team through unity, purpose, and <br className="hidden md:block" />
-            <span className="text-[#d4a017]">Volunteer</span> Roles
+            Volunteer Roles – <span className="text-[#d4a017]">Where You Can Make an Impact</span>
           </h1>
         </div>
 
@@ -80,10 +79,7 @@ const VolunteerRoles = () => {
               </p>
 
               {/* Status Indicator */}
-              <div className="mt-auto flex items-center gap-2 font-semibold text-[10px] uppercase tracking-[0.2em] text-[#d4a017]">
-                <CheckCircle2 size={14} />
-                Available Now
-              </div>
+
             </motion.div>
           ))}
         </div>
@@ -92,11 +88,11 @@ const VolunteerRoles = () => {
         <div className="mt-24 bg-[#002d4b] rounded-2xl p-12 flex flex-col md:flex-row items-center justify-between gap-10 shadow-xl">
           <div className="text-center md:text-left">
             <h2 className="text-white text-3xl md:text-4xl font-bold leading-tight">
-              Ready to make <br />
-              <span className="text-[#d4a017]">Real Change?</span>
+              Ready to Start <br />
+              <span className="text-[#d4a017]">Your Volunteering Journey?</span>
             </h2>
             <p className="text-blue-100/80 mt-4 text-lg">
-              BM Foundation-oda change journey-la neengalum part aagunga.
+              BM Foundation-oda volunteering journey start panna idhu first step. Neengalum part aagunga.
             </p>
           </div>
           <Link to="/license">
@@ -105,7 +101,7 @@ const VolunteerRoles = () => {
               whileTap={{ scale: 0.97 }}
               className="bg-[#d4a017] hover:bg-[#b88a14] text-white px-10 py-4 rounded-md font-bold text-lg shadow-lg transition-colors"
             >
-              Join as a Volunteer →
+              Start Your Volunteering →
             </motion.button>
           </Link>
         </div>

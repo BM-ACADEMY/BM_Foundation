@@ -1,21 +1,23 @@
 import React from 'react';
 import { FaWhatsapp, FaBoxOpen, FaRocket } from 'react-icons/fa';
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const NextSteps = () => {
   const steps = [
     {
       title: "WhatsApp Contact",
-      description: "Namma team WhatsApp-la contact pannuvanga (48 hours-ku ullae)",
+      description: "Namma team WhatsApp-la 48 hours-kulla contact pannuvaanga.",
       icon: <FaWhatsapp className="w-8 h-8 text-[#d4a017]" />
     },
     {
       title: "Onboarding Kit",
-      description: "Onboarding kit, welcome call, upcoming events info ellam kudukkalaam",
+      description: "Onboarding kit, welcome call, upcoming events details ellam share pannuvaanga.",
       icon: <FaBoxOpen className="w-8 h-8 text-[#d4a017]" />
     },
     {
       title: "Start Your Journey",
-      description: "Nalla vibes, no pressure – unga pace-le start pannunga!",
+      description: "No pressure. Unga pace-le volunteering start pannalaam.",
       icon: <FaRocket className="w-8 h-8 text-[#d4a017]" />
     }
   ];
@@ -26,12 +28,20 @@ const NextSteps = () => {
 
         {/* Updated Header Section */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#002d4b] leading-tight">
-            Empowering your journey through clarity, support, and <br className="hidden md:block" />
-            <span className="text-[#d4a017]">Next Steps</span> After Enrollment
+          
+          {/* 1. Main Heading */}
+          <h2 className="text-3xl md:text-4xl font-bold text-[#002d4b] leading-tight mb-3">
+            Next Steps After Enrollment
           </h2>
+
+          {/* 2. Subheading */}
+          <p className="text-[#d4a017] font-bold text-lg tracking-wide uppercase">
+            Empowering your journey through clarity and support
+          </p>
+
+          {/* 3. Supporting Paragraph */}
           <p className="max-w-2xl mx-auto text-gray-500 mt-6 text-lg">
-            Your journey with BM Foundation starts here. We make sure you have everything you need to succeed.
+            Your journey with the BM Foundation starts here. These simple steps will guide you from onboarding to active volunteering.
           </p>
         </div>
 
@@ -40,7 +50,6 @@ const NextSteps = () => {
           {steps.map((step, index) => (
             <div
               key={index}
-              // 1. ADD 'group' and 'hover:bg-[#002d4b]'
               className="group bg-white hover:bg-[#002d4b] p-10 rounded-sm border border-gray-100 shadow-sm flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
               {/* Icon Container - Stays white on hover */}
@@ -51,19 +60,31 @@ const NextSteps = () => {
               </div>
 
               {/* Title */}
-              {/* 2. ADD 'group-hover:text-white' */}
               <h3 className="text-xl font-bold text-[#002d4b] group-hover:text-white mb-4 transition-colors duration-300">
                 {step.title}
               </h3>
 
               {/* Description */}
-              {/* 3. ADD 'group-hover:text-blue-50' */}
               <p className="text-gray-500 group-hover:text-blue-50 leading-relaxed transition-colors duration-300">
                 {step.description}
               </p>
             </div>
           ))}
         </div>
+        
+        {/* CTA Button */}
+        <div className="mt-16 text-center">
+          <Link to="/license">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.96 }}
+              className="bg-[#002d4b] hover:bg-[#001f35] text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg transition-colors flex items-center justify-center gap-2 mx-auto"
+            >
+              Start Volunteering →
+            </motion.button>
+          </Link>
+        </div>
+
       </div>
     </section>
   );
