@@ -162,14 +162,14 @@ export default function MembershipDownload() {
         <div className="p-10 lg:p-14 flex flex-col justify-center bg-white relative">
 
           <div className="mb-8">
-            <h3 className="text-2xl font-bold text-[#002d4b] mb-2">Get Your Certificate</h3>
+            <h3 className="text-2xl font-bold text-[#002d4b] mb-2">Verify Your Membership</h3>
             <p className="text-gray-500 text-sm">
-                Enter your registered mobile number to verify your identity and download your card.
+                Verify your membership using your mobile number and download your digital ID card.
             </p>
           </div>
 
           <div className="relative mb-6">
-            <label className="text-xs font-bold text-[#002d4b] uppercase tracking-wider mb-2 block">Mobile Number</label>
+            <label className="text-xs font-bold text-[#002d4b] uppercase tracking-wider mb-2 block">Registered Mobile Number</label>
             <input
               type="text"
               placeholder="e.g. 9876543210"
@@ -215,7 +215,7 @@ export default function MembershipDownload() {
             {loading ? (
                 <>Downloading <span className="text-white/80">{progress}%</span></>
             ) : (
-                <><FaDownload /> Download ID Card</>
+                <><FaDownload />Verify & Download ID</>
             )}
           </motion.button>
 
@@ -235,23 +235,23 @@ export default function MembershipDownload() {
       {/* NEXT STEPS SECTION (Matches Volunteer Grid Style) */}
       <div className="max-w-6xl w-full mt-20">
         <h4 className="text-[#002d4b] font-bold text-center text-xl mb-8 uppercase tracking-widest">
-            After Downloading
+            What You Can Do Next
         </h4>
         <div className="grid md:grid-cols-3 gap-6">
             <StepCard
                 icon={<FaWhatsapp className="text-green-500" />}
-                title="Join Community"
-                desc="Get added to your local volunteer WhatsApp group using your ID number."
+                title="Join Local Community"
+                desc="Get added to your local WhatsApp community using your verified membership ID."
             />
             <StepCard
                 icon={<Star className="text-[#d4a017]" />}
-                title="Earn Points"
-                desc="Show your digital ID at events to earn reputation points."
+                title="Earn Member Points"
+                desc="Use your digital ID during events and activities to earn recognition points."
             />
             <StepCard
                 icon={<FaRocket className="text-[#f26522]" />}
-                title="Start Volunteering"
-                desc="Browse available roles in your district and sign up today."
+                title="Find Local Opportunities"
+                desc="Explore volunteering opportunities available in your area and participate today."
             />
         </div>
       </div>
