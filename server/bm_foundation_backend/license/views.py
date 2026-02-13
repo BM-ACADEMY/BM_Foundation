@@ -101,6 +101,14 @@ class LicenseViewSet(viewsets.ViewSet):
             "email": data.get("email"),
             "address": data.get("address"),
             "photo": (request.build_absolute_uri(f"/media/{photo_path}") if photo_path else None),
+            # New fields added to match frontend
+            "areas_of_interest": data.get("areas_of_interest"),
+            "availability": data.get("availability"),
+            "previous_experience": data.get("previous_experience"),
+            "emergency_contact_name": data.get("emergency_contact_name"),
+            "emergency_contact_phone": data.get("emergency_contact_phone"),
+            "heard_from": data.get("heard_from"),
+            "signature": data.get("signature"),
             "is_approved": False,
             "license_pdf": None,
         }

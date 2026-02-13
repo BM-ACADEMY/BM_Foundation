@@ -64,6 +64,18 @@ export default function License() {
       return;
     }
 
+    if (name === "emergency_contact_phone") {
+        const clean = value.replace(/\D/g, "").slice(0, 10);
+        setFormData((p) => ({ ...p, [name]: clean }));
+        return;
+    }
+
+    if (name === "emergency_contact_name") {
+        const clean = value.replace(/[^a-zA-Z\s]/g, "").slice(0, 50);
+        setFormData((p) => ({ ...p, [name]: clean }));
+        return;
+    }
+
     if (name === "photo") {
       const file = files?.[0] || null;
       setFormData((p) => ({ ...p, photo: file }));

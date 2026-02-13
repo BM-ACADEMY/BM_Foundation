@@ -267,12 +267,6 @@ const BackCard = () => (
              <p style={{ margin: 0, fontSize: "18px", fontWeight: "bold", color: COLORS.accent }}>{license.emergency_contact_phone || "N/A"}</p>
           </div>
 
-          <div>
-             <p style={{ margin: "0 0 4px 0", fontSize: "11px", textTransform: "uppercase", color: "#9ca3af", fontWeight: "bold" }}>Blood Group</p>
-             <span style={{ display: "inline-block", background: "#ef4444", color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "14px", fontWeight: "bold" }}>
-                {license.blood_group || "O+"}
-             </span>
-          </div>
        </div>
 
        {/* Right Side (Z-index added) */}

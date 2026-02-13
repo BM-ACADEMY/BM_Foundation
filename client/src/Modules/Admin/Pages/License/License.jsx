@@ -211,9 +211,24 @@ export default function LicenseAdminSplit() {
                                 <span className="flex items-center gap-1"><Phone size={14} className="text-[#f26522]"/> {selectedItem.phone}</span>
                             </div>
                             <div className="mt-3 flex gap-2">
-                               {selectedItem.areas_of_interest && JSON.parse(selectedItem.areas_of_interest.replace(/'/g, '"')).map((tag, i) => (
-                                   <span key={i} className="px-2 py-0.5 bg-gray-100 text-gray-600 text-[10px] font-bold uppercase rounded">{tag}</span>
-                               ))}
+                               {(() => {
+                                   let interests = [];
+                                   const raw = selectedItem.areas_of_interest;
+                                   if (Array.isArray(raw)) {
+                                       interests = raw;
+                                   } else if (typeof raw === 'string') {
+                                       try {
+                                           // Try JSON first (handling single quotes if needed)
+                                           interests = JSON.parse(raw.replace(/'/g, '"'));
+                                       } catch {
+                                           // Fallback to comma-separated string
+                                           interests = raw.split(',').map(s => s.trim());
+                                       }
+                                   }
+                                   return interests.map((tag, i) => (
+                                       <span key={i} className="px-2 py-0.5 bg-gray-100 text-gray-600 text-[10px] font-bold uppercase rounded">{tag}</span>
+                                   ));
+                               })()}
                             </div>
                         </div>
                      </div>
