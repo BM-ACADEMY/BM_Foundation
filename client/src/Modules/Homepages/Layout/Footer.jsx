@@ -19,9 +19,9 @@ const Footer = () => {
   const menuItems = [
     { label: "Home", path: "/" },
     { label: "About Us", path: "/#about" },
-    { label: "Volunteer", path: "/license" },
+    { label: "Join as Volunteer", path: "/license" },
     { label: "Download ID", path: "/license/download" },
-    { label: "Contact", path: "/contact" },
+    { label: "Contact Us", path: "/contact" },
   ];
 
   return (
@@ -50,7 +50,7 @@ const Footer = () => {
             </Link>
 
             <p className="text-gray-400 text-sm leading-relaxed">
-              We are dedicated to uplifting communities through education, health support, and social welfare.
+              BM Foundation is a community-driven initiative supporting education, health, and social welfare across Tamil Nadu. Together with local volunteers, we create real impact at the grassroots level.
             </p>
 
             {/* ✅ SOCIAL ICONS (FIXED) */}
@@ -133,32 +133,41 @@ const Footer = () => {
           </div>
 
           {/* --- COL 4: CTA --- */}
-          <div className="bg-[#00385c] p-6 rounded-2xl border border-white/5 shadow-xl h-fit">
-            <h3 className="text-white font-bold text-lg mb-2">Join the Mission</h3>
-            <p className="text-xs text-gray-400 mb-6">
+          <div>
+            <h3 className="text-[#f2bc1c] font-bold uppercase tracking-widest text-sm mb-6 flex items-center gap-2">
+              Join the Mission
+              <span className="h-px w-8 bg-[#f2bc1c]/30"></span>
+            </h3>
+            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
               Become a volunteer today and make a real impact.
             </p>
             <button
               onClick={() => navigate("/license")}
-              className="w-full py-3 bg-[#f26522] hover:bg-[#d95315] rounded-lg text-sm font-bold uppercase flex items-center justify-center gap-2 transition-all active:scale-95"
+              className="w-full py-4 bg-[#f26522] hover:bg-[#d95315] rounded-lg text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg"
             >
-              <Heart size={16} className="fill-white" /> Join as Volunteer
+              <Heart size={16} className="fill-white flex-shrink-0" /> 
+              <span>BECOME A LOCAL VOLUNTEER</span>
             </button>
           </div>
 
         </div>
 
         {/* --- BOTTOM BAR --- */}
-        <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} BM Foundation. All Rights Reserved.</p>
-          <a
-            href="https://bmtechx.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#f2bc1c] font-bold hover:text-white hover:underline"
-          >
-            Powered by BMTechx.in
-          </a>
+        <div className="border-t border-white/10 mt-16 pt-8 flex flex-col items-center gap-4">
+          <p className="text-[#f2bc1c] text-sm font-medium tracking-wide">
+            சமூக மாற்றத்திற்கான சிறு முயற்சி – உங்கள் பங்களிப்புடன்
+          </p>
+          <div className="flex flex-col md:flex-row justify-between items-center w-full gap-4 text-xs text-gray-500">
+            <p>© {new Date().getFullYear()} BM Foundation. All Rights Reserved.</p>
+            <a
+              href="https://bmtechx.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#f2bc1c] font-bold hover:text-white hover:underline"
+            >
+              Powered by BMTechx.in
+            </a>
+          </div>
         </div>
 
       </div>
