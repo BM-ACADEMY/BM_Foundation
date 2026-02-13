@@ -163,6 +163,9 @@ export default function License() {
              <h1 className="text-2xl md:text-3xl font-black text-white uppercase tracking-wide">
                Volunteer Registration
              </h1>
+             <p className="text-white/90 text-sm md:text-base mt-2 font-medium max-w-2xl">
+               Register once to serve your local community through BM Foundation.
+             </p>
           </div>
         </div>
 
@@ -171,17 +174,17 @@ export default function License() {
             <div className="flex items-center justify-center gap-4 text-sm font-bold">
                 <span className={`flex items-center gap-2 ${currentStep >= 1 ? "text-[#f26522]" : "text-gray-400"}`}>
                     <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${currentStep >= 1 ? "bg-[#f26522] text-white" : "bg-gray-300 text-gray-500"}`}>1</div>
-                    Personal
+                    Personal Details
                 </span>
                 <div className="w-10 h-0.5 bg-gray-300"></div>
                 <span className={`flex items-center gap-2 ${currentStep >= 2 ? "text-[#f26522]" : "text-gray-400"}`}>
                     <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${currentStep >= 2 ? "bg-[#f26522] text-white" : "bg-gray-300 text-gray-500"}`}>2</div>
-                    Details (Optional)
+                    Additional Details (Optional)
                 </span>
                 <div className="w-10 h-0.5 bg-gray-300"></div>
                 <span className={`flex items-center gap-2 ${currentStep >= 3 ? "text-[#f26522]" : "text-gray-400"}`}>
                     <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${currentStep >= 3 ? "bg-[#f26522] text-white" : "bg-gray-300 text-gray-500"}`}>3</div>
-                    Verify
+                    Mobile Verification
                 </span>
             </div>
         </div>
@@ -199,7 +202,7 @@ export default function License() {
                   <InputGroup label="Full Name" name="full_name" placeholder="As per ID proof" value={formData.full_name} onChange={handleChange} required />
 
                   <div className="grid grid-cols-2 gap-4">
-                     <InputGroup label="Age" name="age" type="number" placeholder="Years" value={formData.age} onChange={handleChange} />
+                     <InputGroup label="Age" name="age" type="number" placeholder="Enter your age" value={formData.age} onChange={handleChange} />
                      <SelectGroup label="Gender" name="gender" value={formData.gender} onChange={handleChange} options={[
                         { val: "male", txt: "Male" }, { val: "female", txt: "Female" }, { val: "other", txt: "Other" }
                      ]} required />
@@ -214,7 +217,7 @@ export default function License() {
                      </div>
                   </div>
 
-                  <InputGroup label="Email Address" name="email" type="email" placeholder="Optional" value={formData.email} onChange={handleChange} icon={<Mail size={18} />} />
+                  <InputGroup label="Email Address" name="email" type="email" placeholder="Optional – for updates and certificates" value={formData.email} onChange={handleChange} icon={<Mail size={18} />} />
                   <InputGroup label="Ward Number" name="ward_number" placeholder="Your Ward No." value={formData.ward_number} onChange={handleChange} required icon={<MapPin size={18}/>} />
 
                   <div className="md:col-span-2">
@@ -311,7 +314,7 @@ export default function License() {
             <div className="flex gap-4">
                 {currentStep === 1 && (
                     <button onClick={nextStep} className="flex items-center gap-2 px-8 py-3 bg-[#002d4b] text-white rounded-full font-bold hover:bg-[#00406b] transition shadow-lg">
-                        Next Step <ChevronRight size={20} />
+                        CONTINUE REGISTRATION <ChevronRight size={20} />
                     </button>
                 )}
 
@@ -321,7 +324,7 @@ export default function License() {
                             Skip <SkipForward size={18} />
                         </button>
                         <button onClick={nextStep} className="flex items-center gap-2 px-8 py-3 bg-[#002d4b] text-white rounded-full font-bold hover:bg-[#00406b] transition shadow-lg">
-                            Next Step <ChevronRight size={20} />
+                            CONTINUE REGISTRATION <ChevronRight size={20} />
                         </button>
                     </>
                 )}
