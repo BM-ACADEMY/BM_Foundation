@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { FaDownload, FaWhatsapp, FaGift, FaRocket } from "react-icons/fa";
 import { ShieldCheck, UserCheck, Star } from "lucide-react"; // Added Lucide icons for consistency
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import logo from "../../../assets/banner/BM_FOUNDATION _logo.png";
 import image from "../../../assets/foundation.jpg"; // Using the portrait image for the ID card preview
@@ -232,11 +233,32 @@ export default function MembershipDownload() {
         </div>
       </motion.div>
 
+      {/* New CTA / Quote Section */}
+      <div className="max-w-6xl w-full mt-20 bg-[#002d4b] rounded-2xl p-12 flex flex-col md:flex-row items-center justify-between gap-10 shadow-xl">
+        <div className="text-center md:text-left">
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
+            <span className="text-[#d4a017]">அறம் செய்ய விரும்பு</span>
+          </h2>
+          <p className="text-blue-100/80 text-xl font-medium tracking-wide">
+            சேவை மனப்பான்மையே சமூக முன்னேற்றத்தின் அடித்தளம்
+          </p>
+        </div>
+        <Link to="/license">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            className="bg-[#d4a017] hover:bg-[#b88a14] text-white px-10 py-4 rounded-md font-bold text-lg shadow-lg transition-colors whitespace-nowrap"
+          >
+            Start Your Volunteering →
+          </motion.button>
+        </Link>
+      </div>
+
       {/* NEXT STEPS SECTION (Matches Volunteer Grid Style) */}
       <div className="max-w-6xl w-full mt-20">
-        <h4 className="text-[#002d4b] font-bold text-center text-xl mb-8 uppercase tracking-widest">
-            What You Can Do Next
-        </h4>
+        <h2 className="text-3xl md:text-5xl font-bold text-[#002d4b] leading-tight text-center mb-12">
+            What You Can <span className="text-[#d4a017]">Do Next</span>
+        </h2>
         <div className="grid md:grid-cols-3 gap-6">
             <StepCard
                 icon={<FaWhatsapp className="text-green-500" />}
