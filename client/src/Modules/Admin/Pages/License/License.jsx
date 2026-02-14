@@ -171,9 +171,9 @@ export default function LicenseAdminSplit() {
 
                              <div className="flex items-center gap-3">
                                  {item.photo ? (
-                                     <img src={item.photo} className="w-10 h-10 rounded-full object-cover bg-gray-200" alt="" />
+                                     <img src={item.photo} className="w-12 h-14 rounded object-cover bg-gray-200 border border-gray-300" alt="" />
                                  ) : (
-                                     <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-400"><User size={16}/></div>
+                                     <div className="w-12 h-14 rounded bg-gray-200 flex items-center justify-center text-gray-400 border border-gray-300"><User size={20}/></div>
                                  )}
                                  <div>
                                      <h4 className={`font-bold text-sm ${selectedId === item._id ? "text-[#002d4b]" : "text-gray-700"}`}>{item.full_name}</h4>
@@ -197,7 +197,7 @@ export default function LicenseAdminSplit() {
                   {/* DETAIL HEADER */}
                   <div className="flex items-start justify-between mb-8 pb-6 border-b border-gray-100">
                      <div className="flex gap-6">
-                        <div className="w-24 h-24 rounded-xl border-4 border-white shadow-lg overflow-hidden bg-gray-100">
+                        <div className="w-44 h-24 rounded-xl border-4 border-white shadow-lg overflow-hidden bg-gray-100">
                             {selectedItem.photo ? (
                                 <img src={selectedItem.photo} className="w-full h-full object-cover" alt="Profile" />
                             ) : (
@@ -205,12 +205,19 @@ export default function LicenseAdminSplit() {
                             )}
                         </div>
                         <div>
-                            <h2 className="text-3xl font-black text-[#002d4b] mb-1">{selectedItem.full_name}</h2>
-                            <div className="flex items-center gap-4 text-sm text-gray-500">
-                                <span className="flex items-center gap-1"><MapPin size={14} className="text-[#f26522]"/> Ward: {selectedItem.ward_number}</span>
-                                <span className="flex items-center gap-1"><Phone size={14} className="text-[#f26522]"/> {selectedItem.phone}</span>
+                            <h2 className="text-3xl font-black text-[#002d4b] mb-2">{selectedItem.full_name}</h2>
+                            <div className="flex flex-col gap-1.5 text-sm mb-3">
+                                <span className="flex items-center gap-2 font-medium text-gray-700">
+                                    <MapPin size={16} className="text-[#f26522]"/> Ward: {selectedItem.ward_number}
+                                </span>
+                                <span className="flex items-center gap-2 font-medium text-gray-700">
+                                    <Phone size={16} className="text-[#f26522]"/> {selectedItem.phone}
+                                </span>
+                                <span className="text-xs text-gray-400 mt-1 flex items-center gap-1">
+                                    🆔 Member ID: {selectedItem.volunteer_id || 'Pending'}
+                                </span>
                             </div>
-                            <div className="mt-3 flex gap-2">
+                            <div className="flex flex-wrap gap-2">
                                {(() => {
                                    let interests = [];
                                    const raw = selectedItem.areas_of_interest;
@@ -226,7 +233,7 @@ export default function LicenseAdminSplit() {
                                        }
                                    }
                                    return interests.map((tag, i) => (
-                                       <span key={i} className="px-2 py-0.5 bg-gray-100 text-gray-600 text-[10px] font-bold uppercase rounded">{tag}</span>
+                                       <span key={i} className="px-2 py-0.5 bg-gray-100 text-gray-600 text-[10px] font-bold uppercase rounded border border-gray-200">{tag}</span>
                                    ));
                                })()}
                             </div>
@@ -237,7 +244,6 @@ export default function LicenseAdminSplit() {
                              {selectedItem.is_approved ? "Verified Member" : "Awaiting Approval"}
                              <ShieldCheck size={16} />
                          </div>
-                         <p className="text-xs text-gray-400">ID: {selectedItem._id}</p>
                      </div>
                   </div>
 
@@ -299,7 +305,7 @@ export default function LicenseAdminSplit() {
                          onClick={() => setDeleteTarget(selectedItem)}
                          className="px-4 py-2 text-red-500 hover:bg-red-50 font-bold rounded-lg flex items-center gap-2 transition-colors"
                       >
-                         <Trash2 size={16} /> Delete Record
+                         <Trash2 size={16} /> Reject Member
                       </button>
                   </div>
 

@@ -92,7 +92,24 @@ class LicenseViewSet(viewsets.ViewSet):
                 photo,
             )
 
+        # Generate volunteer_id
+        import datetime
+        current_year = datetime.date.today().year
+        
+        # Count existing volunteers for this year (those with volunteer_id starting with current year)
+        year_prefix = f"BMF-{current_year}-"
+        count = license_collection.count_documents({"volunteer_id": {"$regex": f"^{year_prefix}"}})
+        
+        # Generate new ID
+        volunteer_id = f"BMF-{current_year}-{count + 1:03d}"
+        
+        # Ensure uniqueness (in case of race conditions)
+        while license_collection.find_one({"volunteer_id": volunteer_id}):
+            count += 1
+            volunteer_id = f"BMF-{current_year}-{count + 1:03d}"
+
         volunteer_doc = {
+            "volunteer_id": volunteer_id,
             "full_name": data.get("full_name"),
             "age": age,
             "gender": data.get("gender"),

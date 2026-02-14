@@ -120,6 +120,12 @@ class License(models.Model):
     # ----------------------------
     # SYSTEM FIELDS
     # ----------------------------
+    volunteer_id = models.CharField(
+        max_length=20, 
+        unique=True, 
+        blank=True, 
+        null=True
+    )
     is_approved = models.BooleanField(default=False)
     license_pdf = models.URLField(blank=True, null=True)
 
@@ -128,5 +134,29 @@ class License(models.Model):
     # ----------------------------
     # DISPLAY
     # ----------------------------
+    def save(self, *args, **kwargs):
+        if not self.volunteer_id:
+            import datetime
+            today = datetime.date.today()
+            current_year = today.year
+            
+            # Count existing users for this year
+            count = License.objects.filter(created_at__year=current_year).count()
+            
+            # Generate new ID: BMF-2026-001 (count + 1)
+            # Using count + 1 might have race conditions in high traffic, 
+            # but for this scale it's acceptable. 
+            # Ideally use a separate sequence model.
+            new_id = f"BMF-{current_year}-{count + 1:03d}"
+            
+            # Ensure uniqueness loop (simple fallback)
+            while License.objects.filter(volunteer_id=new_id).exists():
+                count += 1
+                new_id = f"BMF-{current_year}-{count + 1:03d}"
+            
+            self.volunteer_id = new_id
+            
+        super().save(*args, **kwargs)
+
     def __str__(self):
-        return self.full_name or self.phone
+        return f"{self.full_name} ({self.volunteer_id or 'No ID'})"

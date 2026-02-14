@@ -1,6 +1,7 @@
 # serializers.py
 from rest_framework import serializers
 from django.conf import settings
+from .models import License
 
 class LicenseSerializer(serializers.ModelSerializer):
     photo = serializers.SerializerMethodField()

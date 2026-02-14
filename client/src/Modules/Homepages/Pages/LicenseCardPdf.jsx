@@ -129,20 +129,26 @@ export default function LicenseCardPdf({ license }) {
 
       {/* HEADER */}
       <div style={{ height: "90px", backgroundColor: COLORS.primary, display: "flex", alignItems: "center", padding: "0 30px", gap: "20px", borderBottom: `4px solid ${COLORS.accent}` }}>
-        {/* Transparent Logo Container (Removed white background circle) */}
+        {/* Transparent Logo Container */}
         <div style={{ width: "70px", height: "70px", display: "flex", alignItems: "center", justifyContent: "center" }}>
              <img src={logo} alt="Logo" style={{ width: "100%", height: "100%", objectFit: "contain" }} crossOrigin="anonymous"/>
         </div>
-        <div>
+        <div style={{ flex: 1 }}>
           <h1 style={{ margin: 0, color: "white", fontSize: "28px", fontWeight: "900", letterSpacing: "1px", textTransform: "uppercase" }}>BM FOUNDATION</h1>
           <p style={{ margin: 0, color: COLORS.gold, fontSize: "14px", fontWeight: "600", letterSpacing: "1px" }}>Volunteer Identity Card</p>
+        </div>
+        <div style={{ textAlign: "right", color: "white" }}>
+            <p style={{ margin: 0, fontSize: "10px", opacity: 0.8 }}>VOLUNTEER ID</p>
+            <p style={{ margin: 0, fontSize: "14px", fontWeight: "bold", color: COLORS.gold }}>
+                {license.volunteer_id || "PENDING"}
+            </p>
         </div>
       </div>
 
       {/* BODY */}
       <div style={{ display: "flex", height: "330px", position: "relative" }}>
 
-        {/* Improved Watermark Logic */}
+        {/* Watermark */}
         <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 0 }}>
            <img
              src={logo}
@@ -151,7 +157,7 @@ export default function LicenseCardPdf({ license }) {
                width: "300px",
                opacity: 0.06,
                filter: "grayscale(100%)",
-               mixBlendMode: "multiply" // Helps remove any white backgrounds if the PNG isn't perfect
+               mixBlendMode: "multiply"
              }}
              crossOrigin="anonymous"
            />
@@ -169,7 +175,7 @@ export default function LicenseCardPdf({ license }) {
             </div>
             <div style={{ width: "70px", height: "70px" }}>
               <img
-                 src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=BM-${license._id}`}
+                 src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://bmfoundation.org/volunteer/${license._id}`}
                  alt="QR"
                  crossOrigin="anonymous"
                  style={{ width: "100%", height: "100%" }}
@@ -179,59 +185,55 @@ export default function LicenseCardPdf({ license }) {
 
         {/* MIDDLE: Details */}
         <div style={{ width: "45%", height: "100%", padding: "25px 0 0 10px", zIndex: 10, display: "flex", flexDirection: "column" }}>
-            <h2 style={{ color: COLORS.accent, textAlign: "center", fontSize: "18px", fontWeight: "bold", margin: "0 0 25px 0", textTransform: "uppercase" }}>Official Volunteer</h2>
+            <h2 style={{ color: COLORS.accent, textAlign: "left", fontSize: "18px", fontWeight: "bold", margin: "0 0 20px 0", textTransform: "uppercase", borderBottom: "2px solid #eee", paddingBottom: "5px", width: "90%" }}>Registered Volunteer</h2>
 
-            <div style={{ display: "grid", gridTemplateColumns: "90px 1fr", rowGap: "14px", fontSize: "15px" }}>
-               <span style={{ color: COLORS.textLabel, fontWeight: "bold" }}>Name</span>
+            <div style={{ display: "grid", gridTemplateColumns: "100px 1fr", rowGap: "12px", fontSize: "15px" }}>
+               <span style={{ color: COLORS.textLabel, fontWeight: "bold" }}>Name:</span>
                <span style={{ color: COLORS.textValue, fontWeight: "600", textTransform: "uppercase" }}>{license.full_name || "N/A"}</span>
 
-               <span style={{ color: COLORS.textLabel, fontWeight: "bold" }}>Designation</span>
+               <span style={{ color: COLORS.textLabel, fontWeight: "bold" }}>Designation:</span>
                <span style={{ color: COLORS.textValue, fontWeight: "500", textTransform: "capitalize" }}>{license.role || "Social Worker"}</span>
 
-               <span style={{ color: COLORS.textLabel, fontWeight: "bold" }}>Phone</span>
-               <span style={{ color: COLORS.textValue, fontWeight: "500" }}>{license.phone || "N/A"}</span>
+               <span style={{ color: COLORS.textLabel, fontWeight: "bold" }}>Phone:</span>
+               <span style={{ color: COLORS.textValue, fontWeight: "500" }}>
+                   {license.phone ? `+91 ${license.phone.slice(0, 5)} ${license.phone.slice(5)}` : "N/A"}
+               </span>
 
-               <span style={{ color: COLORS.textLabel, fontWeight: "bold" }}>Ward/Area</span>
+               <span style={{ color: COLORS.textLabel, fontWeight: "bold" }}>Ward/Area:</span>
                <span style={{ color: COLORS.textValue, fontWeight: "500", lineHeight: "1.2" }}>{license.ward_number || license.address || "N/A"}</span>
             </div>
-
-            {/* ✅ RIGHT SIDE SEAL */}
-        <div
-          style={{
-            position: "absolute",
-            right: "30px",
-            bottom: "20px",
-            zIndex: 10,
-            textAlign: "center",
-          }}
-        >
-          <img
-            src={bmfseal}
-            alt="BM Foundation Seal"
-            style={{
-              width: "70px",
-              height: "70px",
-              objectFit: "contain",
-              opacity: 0.85,
-            }}
-          />
-          <div style={{ fontSize: "9px", color: "#666" }}>
-            Official Seal
-          </div>
-        </div>
         </div>
 
-        {/* RIGHT: Official Image */}
+        {/* RIGHT: Seal & Sign */}
+        <div style={{ width: "25%", height: "100%", position: "relative", zIndex: 10 }}>
+            {/* Seal */}
+            <div style={{ position: "absolute", top: "20px", right: "20px", textAlign: "center" }}>
+              <img
+                src={bmfseal}
+                alt="Seal"
+                style={{ width: "60px", height: "60px", objectFit: "contain", opacity: 0.9 }}
+              />
+            </div>
 
+            {/* Signature */}
+            <div style={{ position: "absolute", bottom: "20px", right: "20px", textAlign: "center" }}>
+                <img
+                    src={ASSETS.signature}
+                    alt="Sign"
+                    crossOrigin="anonymous"
+                    style={{ width: "80px", height: "40px", objectFit: "contain", marginBottom: "5px" }}
+                />
+                <p style={{ margin: 0, fontSize: "10px", fontWeight: "bold", color: COLORS.primary, borderTop: "1px solid #ccc", paddingTop: "2px" }}>Authorized Signatory</p>
+            </div>
+        </div>
 
       </div>
     </div>
   );
 
   // --- 6. BACK CARD ---
-  // --- 6. BACK CARD (BM BRANDING) ---
-const BackCard = () => (
-  <div ref={backRef} style={{ ...CONTAINER_STYLE }}>
+  const BackCard = () => (
+    <div ref={backRef} style={{ ...CONTAINER_STYLE }}>
     {/* Header */}
     <div style={{ height: "60px", backgroundColor: COLORS.primary, display: "flex", alignItems: "center", justifyContent: "center", borderBottom: `4px solid ${COLORS.accent}`, position: "relative", zIndex: 10 }}>
        <h2 style={{ color: "white", fontSize: "16px", textTransform: "uppercase", letterSpacing: "2px", fontWeight: "bold" }}>Emergency Details</h2>
@@ -240,7 +242,7 @@ const BackCard = () => (
     {/* BODY CONTAINER */}
     <div style={{ padding: "30px", display: "flex", gap: "30px", height: "calc(100% - 60px)", position: "relative" }}>
 
-       {/* --- ADDED WATERMARK FOR BACK SIDE --- */}
+       {/* Watermark */}
        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 0 }}>
           <img
             src={logo}
@@ -255,27 +257,28 @@ const BackCard = () => (
           />
        </div>
 
-       {/* Left Side (Z-index added to stay above watermark) */}
-       <div style={{ flex: 1, borderRight: "2px solid #f3f4f6", paddingRight: "20px", zIndex: 10 }}>
-          <div style={{ marginBottom: "20px" }}>
-             <p style={{ margin: "0 0 4px 0", fontSize: "11px", textTransform: "uppercase", color: "#9ca3af", fontWeight: "bold" }}>Emergency Contact</p>
-             <p style={{ margin: 0, fontSize: "16px", fontWeight: "bold", color: "#1f2937" }}>{license.emergency_contact_name || "Not Provided"}</p>
-          </div>
+       {/* Left Side */}
+       <div style={{ flex: 1, borderRight: "2px solid #f3f4f6", paddingRight: "20px", zIndex: 10, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <h3 style={{ color: COLORS.accent, fontSize: "14px", fontWeight: "bold", textTransform: "uppercase", marginBottom: "15px", borderBottom: "1px solid #eee", paddingBottom: "5px" }}>Emergency Contact</h3>
+          
+          <div style={{ display: "grid", gridTemplateColumns: "60px 1fr", rowGap: "10px", fontSize: "14px" }}>
+              <span style={{ color: COLORS.textLabel, fontWeight: "bold" }}>Name:</span>
+              <span style={{ color: "#1f2937", fontWeight: "600" }}>{license.emergency_contact_name || "Not Provided"}</span>
 
-          <div style={{ marginBottom: "20px" }}>
-             <p style={{ margin: "0 0 4px 0", fontSize: "11px", textTransform: "uppercase", color: "#9ca3af", fontWeight: "bold" }}>Contact Number</p>
-             <p style={{ margin: 0, fontSize: "18px", fontWeight: "bold", color: COLORS.accent }}>{license.emergency_contact_phone || "N/A"}</p>
+              <span style={{ color: COLORS.textLabel, fontWeight: "bold" }}>Phone:</span>
+              <span style={{ color: "#1f2937", fontWeight: "600" }}>
+                  {license.emergency_contact_phone ? `+91 ${license.emergency_contact_phone.slice(0, 5)} ${license.emergency_contact_phone.slice(5)}` : "N/A"}
+              </span>
           </div>
-
        </div>
 
-       {/* Right Side (Z-index added) */}
+       {/* Right Side */}
        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", zIndex: 10 }}>
           <div>
              <h3 style={{ color: COLORS.primary, fontSize: "14px", textTransform: "uppercase", marginBottom: "10px", fontWeight: "bold" }}>Terms & Conditions</h3>
              <ul style={{ paddingLeft: "15px", margin: 0, fontSize: "11px", color: "#4b5563", lineHeight: "1.6" }}>
-                <li>This card is the property of BM Foundation.</li>
-                <li>Misuse of this card will result in legal action.</li>
+                <li>This card remains the property of BM Foundation.</li>
+                <li>Any misuse or unauthorized representation will lead to disciplinary or legal action.</li>
                 <li>"Serving Humanity" is our motto.</li>
              </ul>
           </div>
@@ -289,7 +292,7 @@ const BackCard = () => (
     {/* Footer Strip */}
     <div style={{ height: "12px", background: COLORS.accent, position: "absolute", bottom: 0, width: "100%", zIndex: 10 }}></div>
   </div>
-);
+  );
 
   return (
     <div className="flex flex-col items-center gap-8 py-10 bg-gray-100 min-h-screen">
