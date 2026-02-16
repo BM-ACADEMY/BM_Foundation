@@ -1,6 +1,6 @@
 // src/Modules/Homepages/Layout/Footer.jsx
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import {
   Facebook,
   Instagram,
@@ -15,6 +15,17 @@ import Logo from "../../../assets/Foundation/bmf_logo.png";
 
 const Footer = () => {
   const navigate = useNavigate();
+
+  const handleNavClick = (path) => {
+    if (path.includes("#")) {
+      // For hash links, use window.location.href to trigger native hash scrolling
+      window.location.href = path;
+    } else {
+      // For regular links, use navigate and scroll to top
+      navigate(path);
+      window.scrollTo(0, 0);
+    }
+  };
 
   const menuItems = [
     { label: "Home", path: "/" },
@@ -97,7 +108,7 @@ const Footer = () => {
               {menuItems.map((item) => (
                 <li key={item.label}>
                   <Link
-                    to={item.path}
+                    onClick={() => handleNavClick(item.path)}
                     className="group flex items-center gap-2 text-gray-300 text-sm hover:text-[#f2bc1c] hover:translate-x-1 transition-all"
                   >
                     <span className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#f26522]">
@@ -145,7 +156,7 @@ const Footer = () => {
               onClick={() => navigate("/license")}
               className="w-full py-4 bg-[#f26522] hover:bg-[#d95315] rounded-lg text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg"
             >
-              <Heart size={16} className="fill-white flex-shrink-0" /> 
+              <Heart size={16} className="fill-white flex-shrink-0" />
               <span>BECOME A LOCAL VOLUNTEER</span>
             </button>
           </div>

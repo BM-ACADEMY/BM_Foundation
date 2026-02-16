@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Menu, X, HeartHandshake, ChevronRight } from "lucide-react"; 
+import { Menu, X, HeartHandshake, ChevronRight } from "lucide-react";
 import logo from "../../../assets/Foundation/bmf_logo.png";
 import GoogleTranslate from "../../../translate/GoogleTranslate";
 
@@ -47,11 +47,10 @@ const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full font-sans transition-all duration-300 border-b border-transparent ${
-        scrolled 
-          ? "bg-white/95 backdrop-blur-md shadow-lg py-2 border-gray-100" 
-          : "bg-white py-3 lg:py-4"
-      }`}
+      className={`sticky top-0 z-50 w-full font-sans transition-all duration-300 border-b border-transparent ${scrolled
+        ? "bg-white/95 backdrop-blur-md shadow-lg py-2 border-gray-100"
+        : "bg-white py-3 lg:py-4"
+        }`}
     >
       {/* Top Gradient Line */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#b38a11] via-[#1a1a1a] to-[#8b0000]" />
@@ -86,14 +85,14 @@ const Header = () => {
           <nav className="hidden lg:flex flex-1 justify-center items-center gap-4 xl:gap-8 px-4 xl:px-8">
             {menuItems.map((item) => {
               const active = location.pathname === item.path.split("#")[0] && !item.path.includes("#");
+
               return (
                 <Link
                   key={item.label}
                   to={item.path}
                   onClick={(e) => handleNavClick(e, item.path)}
-                  className={`relative text-xs xl:text-sm font-bold tracking-wider uppercase transition-colors duration-300 py-2 whitespace-nowrap group ${
-                    active ? "text-[#f26522]" : "text-[#002d4b] hover:text-[#f26522]"
-                  }`}
+                  className={`relative text-xs xl:text-sm font-bold tracking-wider uppercase transition-colors duration-300 py-2 whitespace-nowrap group ${active ? "text-[#f26522]" : "text-[#002d4b] hover:text-[#f26522]"
+                    }`}
                 >
                   {item.label}
                   <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#f26522] transform origin-left transition-transform duration-300 ${active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
@@ -105,11 +104,11 @@ const Header = () => {
           {/* ---------------- 3. RIGHT ACTIONS ---------------- */}
           {/* Added shrink-0 to prevent these buttons from moving/breaking */}
           <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-            
+
             <div className="hidden lg:block relative z-40">
-               <div className="h-8 flex items-center overflow-hidden min-w-[120px]">
-                 <GoogleTranslate targetId="google_translate_desktop" />
-               </div>
+              <div className="h-8 flex items-center overflow-hidden min-w-[120px]">
+                <GoogleTranslate targetId="google_translate_desktop" />
+              </div>
             </div>
 
             <button
@@ -134,27 +133,27 @@ const Header = () => {
       </div>
 
       {/* ---------------- MOBILE MENU ---------------- */}
-      <div 
-        className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 lg:hidden ${
-          mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
-        }`}
+      <div
+        className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 lg:hidden ${mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+          }`}
         onClick={() => setMobileMenuOpen(false)}
       />
 
       <div
-        className={`absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-2xl overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden z-50 ${
-          mobileMenuOpen ? "max-h-[85vh] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-2xl overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden z-50 ${mobileMenuOpen ? "max-h-[85vh] opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <div className="flex flex-col p-6 space-y-2 overflow-y-auto max-h-[80vh]">
-            <div className="flex flex-col mb-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
-               <div className="flex items-center justify-between mb-2">
-                 <span className="text-xs font-bold text-gray-400 uppercase">Language</span>
-               </div>
-               <GoogleTranslate targetId="google_translate_mobile" />
+          <div className="flex flex-col mb-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-bold text-gray-400 uppercase">Language</span>
             </div>
+            <GoogleTranslate targetId="google_translate_mobile" />
+          </div>
 
-            {menuItems.map((item) => (
+          {menuItems.map((item) => {
+
+            return (
               <Link
                 key={item.label}
                 to={item.path}
@@ -166,20 +165,21 @@ const Header = () => {
                 </span>
                 <ChevronRight size={16} className="text-gray-300 group-hover:text-[#f26522] transition-colors" />
               </Link>
-            ))}
+            );
+          })}
 
-            <div className="pt-4 mt-2">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  navigate("/license");
-                }}
-                className="w-full py-4 bg-[#f26522] text-white text-sm font-bold uppercase tracking-wider rounded-xl shadow-lg active:scale-95 transition-transform flex justify-center items-center gap-2"
-              >
-                <span>Join Us Now</span>
-                <HeartHandshake size={18} />
-              </button>
-            </div>
+          <div className="pt-4 mt-2">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate("/license");
+              }}
+              className="w-full py-4 bg-[#f26522] text-white text-sm font-bold uppercase tracking-wider rounded-xl shadow-lg active:scale-95 transition-transform flex justify-center items-center gap-2"
+            >
+              <span>Join Us Now</span>
+              <HeartHandshake size={18} />
+            </button>
+          </div>
         </div>
       </div>
     </header>
