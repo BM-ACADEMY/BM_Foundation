@@ -129,16 +129,33 @@ const Footer = () => {
             </h3>
             <ul className="space-y-4 text-sm text-gray-300">
               <li className="flex gap-3">
-                <MapPin size={18} className="text-[#f26522]" />
-                <span>252, M.G Road, kottakuppam,<br />Tamil Nadu - 605104</span>
+                <MapPin size={18} className="text-[#f26522] flex-shrink-0 mt-0.5" />
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=252+M.G+Road+kottakuppam+Tamil+Nadu+605104"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#f2bc1c] transition-colors"
+                >
+                  252, M.G Road, kottakuppam,<br />Tamil Nadu - 605104
+                </a>
               </li>
               <li className="flex gap-3">
-                <Phone size={18} className="text-[#f26522]" />
-                <span>+91 9944940051</span>
+                <Phone size={18} className="text-[#f26522] flex-shrink-0" />
+                <a
+                  href="tel:+919944940051"
+                  className="hover:text-[#f2bc1c] transition-colors"
+                >
+                  +91 9944940051
+                </a>
               </li>
               <li className="flex gap-3">
-                <Mail size={18} className="text-[#f26522]" />
-                <span>admin@abmgroups.org</span>
+                <Mail size={18} className="text-[#f26522] flex-shrink-0" />
+                <a
+                  href="mailto:admin@abmgroups.org"
+                  className="hover:text-[#f2bc1c] transition-colors"
+                >
+                  admin@abmgroups.org
+                </a>
               </li>
             </ul>
           </div>
