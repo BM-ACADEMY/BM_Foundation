@@ -60,7 +60,11 @@ const Header = () => {
 
           {/* ---------------- 1. LOGO SECTION ---------------- */}
           {/* Added shrink-0 so it never collapses, and mr-4 for safety margin */}
-          <Link to="/" className="flex items-center gap-3 group shrink-0 relative z-50 mr-4">
+          <Link
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-3 group shrink-0 relative z-50 mr-4"
+          >
             <div className="relative">
               <div className="absolute inset-0 bg-[#d4a017]/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
               <img
