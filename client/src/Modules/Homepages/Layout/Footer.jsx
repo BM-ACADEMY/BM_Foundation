@@ -185,17 +185,9 @@ const Footer = () => {
           <p className="text-[#f2bc1c] text-sm font-medium tracking-wide">
             சமூக மாற்றத்திற்கான சிறு முயற்சி – உங்கள் பங்களிப்புடன்
           </p>
-          <div className="flex flex-col md:flex-row justify-between items-center w-full gap-4 text-xs text-gray-500">
-            <p>© {new Date().getFullYear()} BM Foundation. All Rights Reserved.</p>
-            <a
-              href="https://bmtechx.in/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#f2bc1c] font-bold hover:text-white hover:underline"
-            >
-              Powered by BMTechx.in
-            </a>
-          </div>
+          <p className="text-xs text-gray-500 text-center">
+            © {new Date().getFullYear()} BMTechx.in. All Rights Reserved.
+          </p>
         </div>
 
       </div>

@@ -28,14 +28,14 @@ const NextSteps = () => {
 
         {/* Updated Header Section */}
         <div className="text-center mb-16">
-          
+
           {/* 1. Main Heading */}
           <h2 className="text-3xl md:text-4xl font-bold text-[#002d4b] leading-tight mb-3">
             Next Steps After Enrollment
           </h2>
 
           {/* 2. Subheading */}
-          <p className="text-[#d4a017] font-bold text-lg tracking-wide uppercase">
+          <p className="text-[#d4a017] font-bold text-lg tracking-wide uppercase italic">
             Empowering your journey through clarity and support
           </p>
 
@@ -71,7 +71,7 @@ const NextSteps = () => {
             </div>
           ))}
         </div>
-        
+
         {/* CTA Button */}
         <div className="mt-16 text-center">
           <Link to="/license">
