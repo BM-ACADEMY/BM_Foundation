@@ -9,6 +9,8 @@ import Banner from "../Modules/Homepages/Layout/Banner";
 import VolunteerRoles from "../Modules/Homepages/Pages/VolunteerRoles";
 import NextSteps from "../Modules/Homepages/Pages/NextSteps";
 import Gallery from "../Modules/Homepages/Pages/Gallery";
+import FounderMessage from "../Modules/Homepages/Pages/FounderMessage";
+import Vision2026 from "../Modules/Homepages/Pages/Vision2026";
 
 const HomepagesRoutes = () => {
   return (
@@ -16,6 +18,8 @@ const HomepagesRoutes = () => {
       {/* <Bar /> */}
       <Banner />
       <Hero />
+      <FounderMessage />
+      <Vision2026 />
       <VolunteerRoles />
       <NextSteps />
       {/* <Home /> */}
