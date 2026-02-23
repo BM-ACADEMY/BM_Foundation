@@ -118,7 +118,7 @@ const Vision2026 = () => {
                             whileTap={{ scale: 0.97 }}
                             className="bg-[#d4a017] hover:bg-[#b58812] text-[#002d4b] px-10 py-4 rounded-md font-bold text-lg shadow-lg transition-all flex items-center gap-3 group"
                         >
-                            <span>👉 Be Part of the Vision</span>
+                            <span>Be Part of the Vision</span>
                             <MoveRight size={20} className="group-hover:translate-x-1 transition-transform" />
                         </motion.button>
                     </Link>
