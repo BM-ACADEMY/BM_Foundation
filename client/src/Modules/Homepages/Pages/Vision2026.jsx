@@ -57,7 +57,6 @@ const Vision2026 = () => {
                         Our Future
                     </div>
                     
-                    {/* UPDATED HEADING: Single Line */}
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#002d4b] leading-tight mb-6">
                         Vision 2026 – <span className="text-[#d4a017]">Empowering Youth Across Districts</span>
                     </h2>
@@ -79,21 +78,23 @@ const Vision2026 = () => {
                         <motion.div
                             key={index}
                             variants={cardVariants}
-                            className="bg-[#002d4b] p-8 md:p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 relative group overflow-hidden border border-[#002d4b]/80"
+                            // UPDATED: hover:bg-gray-100 for the light grey background
+                            className="bg-[#002d4b] hover:bg-gray-100 p-8 md:p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 relative group overflow-hidden border border-[#002d4b]/80 hover:border-gray-200"
                         >
-                            {/* Decorative background glow on hover */}
-                            <div className="absolute -inset-24 bg-gradient-to-br from-[#d4a017]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full blur-3xl" />
-                            
                             <div className="relative z-10 flex flex-col h-full">
                                 <div className="flex justify-between items-start mb-6">
-                                    <h3 className="text-2xl font-bold text-white pr-4 leading-tight">
+                                    {/* Text changes to Navy Blue on hover for contrast */}
+                                    <h3 className="text-2xl font-bold text-white group-hover:text-[#002d4b] pr-4 leading-tight transition-colors duration-300">
                                         {point.title}
                                     </h3>
-                                    <div className="p-3 bg-[#ffffff]/10 rounded-xl shrink-0">
-                                        <point.icon className="text-[#d4a017]" size={28} />
+                                    
+                                    {/* Icon keeps the golden color, background of icon shifts slightly */}
+                                    <div className="p-3 bg-[#ffffff]/10 group-hover:bg-[#d4a017]/10 rounded-xl shrink-0 transition-colors duration-300">
+                                        <point.icon className="text-[#d4a017] transition-colors duration-300" size={28} />
                                     </div>
                                 </div>
-                                <p className="text-gray-300 leading-relaxed mt-auto">
+                                {/* Description text changes to dark grey on hover for readability */}
+                                <p className="text-gray-300 group-hover:text-gray-700 leading-relaxed mt-auto transition-colors duration-300">
                                     {point.description}
                                 </p>
                             </div>
