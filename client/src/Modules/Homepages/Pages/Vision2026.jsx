@@ -57,7 +57,8 @@ const Vision2026 = () => {
                         Our Future
                     </div>
                     
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#002d4b] leading-tight mb-6">
+                    {/* UPDATED HEADING: Added whitespace-nowrap and adjusted sizes to prevent overflow */}
+                    <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#002d4b] leading-tight mb-6 whitespace-nowrap overflow-x-auto pb-2 scrollbar-hide">
                         Vision 2026 – <span className="text-[#d4a017]">Empowering Youth Across Districts</span>
                     </h2>
                     
@@ -78,22 +79,17 @@ const Vision2026 = () => {
                         <motion.div
                             key={index}
                             variants={cardVariants}
-                            // UPDATED: hover:bg-gray-100 for the light grey background
                             className="bg-[#002d4b] hover:bg-gray-100 p-8 md:p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 relative group overflow-hidden border border-[#002d4b]/80 hover:border-gray-200"
                         >
                             <div className="relative z-10 flex flex-col h-full">
                                 <div className="flex justify-between items-start mb-6">
-                                    {/* Text changes to Navy Blue on hover for contrast */}
                                     <h3 className="text-2xl font-bold text-white group-hover:text-[#002d4b] pr-4 leading-tight transition-colors duration-300">
                                         {point.title}
                                     </h3>
-                                    
-                                    {/* Icon keeps the golden color, background of icon shifts slightly */}
                                     <div className="p-3 bg-[#ffffff]/10 group-hover:bg-[#d4a017]/10 rounded-xl shrink-0 transition-colors duration-300">
                                         <point.icon className="text-[#d4a017] transition-colors duration-300" size={28} />
                                     </div>
                                 </div>
-                                {/* Description text changes to dark grey on hover for readability */}
                                 <p className="text-gray-300 group-hover:text-gray-700 leading-relaxed mt-auto transition-colors duration-300">
                                     {point.description}
                                 </p>
@@ -122,7 +118,7 @@ const Vision2026 = () => {
                             whileTap={{ scale: 0.97 }}
                             className="bg-[#d4a017] hover:bg-[#b58812] text-[#002d4b] px-10 py-4 rounded-md font-bold text-lg shadow-lg transition-all flex items-center gap-3 group"
                         >
-                            <span>Be Part of the Vision</span>
+                            <span>👉 Be Part of the Vision</span>
                             <MoveRight size={20} className="group-hover:translate-x-1 transition-transform" />
                         </motion.button>
                     </Link>
