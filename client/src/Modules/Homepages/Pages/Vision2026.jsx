@@ -1,7 +1,7 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { Globe, Tent, Mic, Handshake, MoveRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Vision2026 = () => {
     const visionPoints = [
@@ -27,87 +27,97 @@ const Vision2026 = () => {
         },
     ];
 
-    // Animation variants for staggered grid loading
+    // Animation Variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            transition: { staggerChildren: 0.2 },
-        },
+            transition: { staggerChildren: 0.2 }
+        }
     };
 
     const cardVariants = {
         hidden: { opacity: 0, y: 30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+        visible: { 
+            opacity: 1, 
+            y: 0, 
+            transition: { duration: 0.6, ease: "easeOut" } 
+        }
     };
 
     return (
         <section className="bg-[#fcfcfc] py-24 px-6 lg:px-24 font-sans overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 
-                {/* Intro Section */}
-                <motion.div
+                {/* 1. Intro Section */}
+                <motion.div 
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
                     viewport={{ once: true }}
-                    className="text-center max-w-4xl mx-auto mb-16"
+                    transition={{ duration: 0.8 }}
+                    className="max-w-5xl mx-auto mb-16 w-full text-center"
                 >
-                    <div className="inline-block px-4 py-1.5 bg-blue-50 text-[#002d4b] rounded-full text-sm font-bold uppercase tracking-wider mb-6 border border-blue-100">
-                        Our Future
+                    <div className="flex justify-center w-full mb-6">
+                        <div className="inline-block px-4 py-1.5 bg-blue-50 text-[#002d4b] rounded-full text-sm font-bold uppercase tracking-wider border border-blue-100">
+                            Our Future
+                        </div>
                     </div>
                     
-                    {/* UPDATED HEADING: Added whitespace-nowrap and adjusted sizes to prevent overflow */}
-                    <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#002d4b] leading-tight mb-6 whitespace-nowrap overflow-x-auto pb-2 scrollbar-hide">
-                        Vision 2026 – <span className="text-[#d4a017]">Empowering Youth Across Districts</span>
-                    </h2>
+                    <div className="w-full overflow-x-auto pb-4 scrollbar-hide">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold text-[#002d4b] leading-tight whitespace-nowrap inline-block">
+                            Vision 2026 – <span className="text-[#d4a017]">Empowering Youth Across Districts</span>
+                        </h2>
+                    </div>
                     
-                    <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                        By 2026, BM Foundation aims to expand its impact across multiple districts through structured youth development programs, leadership training, and organized volunteer systems. Our vision is to build a strong network of responsible youth leaders who actively contribute to community growth and social transformation.
+                    <p className="text-lg md:text-xl text-gray-600 leading-[1.8] max-w-4xl mx-auto text-center mt-4">
+                        By 2026, BM Foundation aims to expand its impact across multiple districts through structured youth development programs, leadership training, and organized volunteer systems.
                     </p>
                 </motion.div>
 
-                {/* Cards Grid */}
-                <motion.div
+                {/* 2. COMPACT SQUARE CARDS - Staggered Entrance */}
+                <motion.div 
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-16"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
                 >
                     {visionPoints.map((point, index) => (
                         <motion.div
                             key={index}
                             variants={cardVariants}
-                            className="bg-[#002d4b] hover:bg-gray-100 p-8 md:p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 relative group overflow-hidden border border-[#002d4b]/80 hover:border-gray-200"
+                            className="bg-[#002d4b] hover:bg-[#001f35] border border-[#002d4b] hover:border-[#d4a017] rounded-2xl p-6 md:p-8 shadow-xl flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-2 group h-full justify-start"
                         >
-                            <div className="relative z-10 flex flex-col h-full">
-                                <div className="flex justify-between items-start mb-6">
-                                    <h3 className="text-2xl font-bold text-white group-hover:text-[#002d4b] pr-4 leading-tight transition-colors duration-300">
-                                        {point.title}
-                                    </h3>
-                                    <div className="p-3 bg-[#ffffff]/10 group-hover:bg-[#d4a017]/10 rounded-xl shrink-0 transition-colors duration-300">
-                                        <point.icon className="text-[#d4a017] transition-colors duration-300" size={28} />
-                                    </div>
-                                </div>
-                                <p className="text-gray-300 group-hover:text-gray-700 leading-relaxed mt-auto transition-colors duration-300">
-                                    {point.description}
-                                </p>
+                            {/* Icon Centered on Top */}
+                            <div className="w-16 h-16 bg-[#ffffff]/10 group-hover:bg-[#d4a017] rounded-full flex items-center justify-center mb-6 transition-colors duration-300 shrink-0">
+                                <point.icon className="text-[#d4a017] group-hover:text-[#002d4b] transition-colors duration-300" size={32} />
                             </div>
+                            
+                            {/* Title Container */}
+                            <div className="h-[64px] flex items-start justify-center w-full mb-3">
+                                <h3 className="text-[1.15rem] font-bold text-white leading-snug">
+                                    {point.title}
+                                </h3>
+                            </div>
+
+                            {/* Description */}
+                            <p className="text-base text-gray-300 group-hover:text-gray-200 leading-relaxed">
+                                {point.description}
+                            </p>
                         </motion.div>
                     ))}
                 </motion.div>
 
-                {/* Closing Section & CTA */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+                {/* 3. Closing Section & CTA */}
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
+                    transition={{ delay: 0.4, duration: 0.8 }}
                     className="max-w-4xl mx-auto text-center flex flex-col items-center"
                 >
                     <div className="p-6 bg-orange-50 border-l-4 border-r-4 border-[#d4a017] rounded-md shadow-sm mb-10">
-                        <p className="text-[#002d4b] font-semibold text-lg italic leading-relaxed">
+                        <p className="text-[#002d4b] font-semibold text-lg md:text-xl italic leading-relaxed">
                             Vision 2026 moolama, BM Foundation responsible youth leaders ah build panna committed ah irukku. Structured volunteer system moolama grassroots level la real impact create panni, Tamil Nadu la meaningful change kondu varuvadhu namma goal.
                         </p>
                     </div>
