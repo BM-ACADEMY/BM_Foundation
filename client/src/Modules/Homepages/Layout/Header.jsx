@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Menu, X, HeartHandshake, ChevronRight } from "lucide-react";
+import { Menu, X, HeartHandshake, ChevronRight, Download } from "lucide-react"; // Added Download icon
 import logo from "../../../assets/Foundation/bmf_logo.png";
 import GoogleTranslate from "../../../translate/GoogleTranslate";
 
@@ -10,13 +10,13 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Removed "Download ID" from here so it can be an icon instead
   const menuItems = [
     { label: "Home", path: "/" },
     { label: "Volunteer", path: "/license" },
     { label: "About", path: "/#about" },
     { label: "Gallery", path: "/gallery" },
     { label: "Contact", path: "/contact" },
-    { label: "Download ID", path: "/license/download" },
   ];
 
   useEffect(() => {
@@ -59,7 +59,6 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
 
           {/* ---------------- 1. LOGO SECTION ---------------- */}
-          {/* Added shrink-0 so it never collapses, and mr-4 for safety margin */}
           <Link
             to="/"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -84,8 +83,6 @@ const Header = () => {
           </Link>
 
           {/* ---------------- 2. CENTER NAVIGATION ---------------- */}
-          {/* FIX: Used 'flex-1' to take up remaining space and 'justify-center' to center links */}
-          {/* FIX: Added 'px-4 xl:px-8' to force padding on both sides so it touches nothing */}
           <nav className="hidden lg:flex flex-1 justify-center items-center gap-4 xl:gap-8 px-4 xl:px-8">
             {menuItems.map((item) => {
               const active = location.pathname === item.path.split("#")[0] && !item.path.includes("#");
@@ -106,7 +103,6 @@ const Header = () => {
           </nav>
 
           {/* ---------------- 3. RIGHT ACTIONS ---------------- */}
-          {/* Added shrink-0 to prevent these buttons from moving/breaking */}
           <div className="flex items-center gap-3 sm:gap-4 shrink-0">
 
             <div className="hidden lg:block relative z-40">
@@ -115,6 +111,25 @@ const Header = () => {
               </div>
             </div>
 
+            {/* Download ID Icon Button (Visible on both Mobile & Desktop) */}
+            <button
+              onClick={() => navigate("/license/download")}
+              className="text-[#002d4b] hover:text-[#f26522] p-2 rounded-full hover:bg-gray-100 transition-colors flex items-center justify-center"
+              title="Download ID"
+              aria-label="Download ID"
+            >
+              <Download size={22} />
+            </button>
+
+            {/* Sponsor Button (Desktop only, added to mobile menu below) */}
+            <button
+              onClick={() => navigate("/sponsor")}
+              className="hidden sm:flex group relative overflow-hidden bg-transparent border-2 border-[#002d4b] text-[#002d4b] hover:text-white hover:bg-[#002d4b] text-xs sm:text-sm font-bold py-2 px-4 rounded-md shadow-sm transition-all duration-300 items-center gap-2 whitespace-nowrap"
+            >
+              <span className="uppercase tracking-wide">Sponsor</span>
+            </button>
+
+            {/* Join Us Button */}
             <button
               onClick={() => navigate("/license")}
               className="hidden sm:flex group relative overflow-hidden bg-[#002d4b] text-white text-xs sm:text-sm font-bold py-2.5 px-5 rounded-md shadow-lg transition-all duration-300 hover:shadow-[#f26522]/30 hover:bg-[#f26522] items-center gap-2 whitespace-nowrap"
@@ -156,7 +171,6 @@ const Header = () => {
           </div>
 
           {menuItems.map((item) => {
-
             return (
               <Link
                 key={item.label}
@@ -172,7 +186,19 @@ const Header = () => {
             );
           })}
 
-          <div className="pt-4 mt-2">
+          <div className="pt-4 mt-2 flex flex-col gap-3">
+            {/* Added Mobile Sponsor Button */}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate("/sponsor");
+              }}
+              className="w-full py-3 bg-transparent border-2 border-[#002d4b] text-[#002d4b] text-sm font-bold uppercase tracking-wider rounded-xl shadow-sm active:scale-95 transition-transform flex justify-center items-center gap-2"
+            >
+              <span>Sponsor</span>
+            </button>
+
+            {/* Existing Mobile Join Us Button */}
             <button
               onClick={() => {
                 setMobileMenuOpen(false);

@@ -39,7 +39,7 @@ import LicenseDownload from "../Modules/Homepages/Pages/LicenseDownload";
 import Contact from "../Modules/Homepages/Pages/Contact";
 import LicenseCardPdfWrapper from "../Modules/Homepages/Pages/LicenseCardPdfWrapper";
 import Gallery from "../Modules/Homepages/Pages/Gallery";
-
+import SponsorPage from "../Modules/Homepages/Pages/sponsor/SponsorPage";
 const AppRoutes = () => {
   return (
     <Router>
@@ -56,6 +56,7 @@ const AppRoutes = () => {
             </Layout>
           }
         />
+
 
 
 
@@ -94,6 +95,15 @@ const AppRoutes = () => {
           element={
             <Layout>
               <Gallery />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/sponsor"
+          element={
+            <Layout>
+              <SponsorPage />
             </Layout>
           }
         />
