@@ -27,7 +27,6 @@ const Vision2026 = () => {
         },
     ];
 
-    // Animation Variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -49,12 +48,11 @@ const Vision2026 = () => {
         <section className="bg-[#fcfcfc] py-24 px-6 lg:px-24 font-sans overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 
-                {/* 1. Intro Section */}
+                {/* 1. Intro Section - Updated with Full Content */}
                 <motion.div 
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
                     className="max-w-5xl mx-auto mb-16 w-full text-center"
                 >
                     <div className="flex justify-center w-full mb-6">
@@ -63,47 +61,45 @@ const Vision2026 = () => {
                         </div>
                     </div>
                     
-                    <div className="w-full overflow-x-auto pb-4 scrollbar-hide">
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold text-[#002d4b] leading-tight whitespace-nowrap inline-block">
-                            Vision 2026 – <span className="text-[#d4a017]">Empowering Youth Across Districts</span>
-                        </h2>
-                    </div>
+                    <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#002d4b] mb-6">
+                        Vision 2026 – <span className="text-[#d4a017]">Empowering Youth Across Districts</span>
+                    </h2>
                     
-                    <p className="text-lg md:text-xl text-gray-600 leading-[1.8] max-w-4xl mx-auto text-center mt-4">
-                        By 2026, BM Foundation aims to expand its impact across multiple districts through structured youth development programs, leadership training, and organized volunteer systems.
+                    <p className="text-lg md:text-xl text-gray-600 leading-[1.8] max-w-4xl mx-auto text-center">
+                        By 2026, BM Foundation aims to expand its impact across multiple districts through structured youth development programs, leadership training, and organized volunteer systems. Our vision is to build a strong network of responsible youth leaders who actively contribute to community growth and social transformation.
                     </p>
                 </motion.div>
 
-                {/* 2. COMPACT SQUARE CARDS - Staggered Entrance */}
+                {/* 2. GRID CARDS - Alignment Fixed */}
                 <motion.div 
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true }}
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
                 >
                     {visionPoints.map((point, index) => (
                         <motion.div
                             key={index}
                             variants={cardVariants}
-                            className="bg-[#002d4b] hover:bg-[#001f35] border border-[#002d4b] hover:border-[#d4a017] rounded-2xl p-6 md:p-8 shadow-xl flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-2 group h-full justify-start"
+                            className="bg-[#002d4b] hover:bg-[#001f35] border border-[#002d4b] hover:border-[#d4a017] rounded-2xl p-8 shadow-xl flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-2 group h-full"
                         >
-                            {/* Icon Centered on Top */}
-                            <div className="w-16 h-16 bg-[#ffffff]/10 group-hover:bg-[#d4a017] rounded-full flex items-center justify-center mb-6 transition-colors duration-300 shrink-0">
+                            <div className="w-16 h-16 bg-[#ffffff]/10 group-hover:bg-[#d4a017] rounded-full flex items-center justify-center mb-6 shrink-0 transition-colors duration-300">
                                 <point.icon className="text-[#d4a017] group-hover:text-[#002d4b] transition-colors duration-300" size={32} />
                             </div>
                             
-                            {/* Title Container */}
-                            <div className="h-[64px] flex items-start justify-center w-full mb-3">
-                                <h3 className="text-[1.15rem] font-bold text-white leading-snug">
+                            <div className="min-h-[60px] flex items-center justify-center w-full mb-4">
+                                <h3 className="text-lg font-bold text-white leading-tight">
                                     {point.title}
                                 </h3>
                             </div>
 
-                            {/* Description */}
-                            <p className="text-base text-gray-300 group-hover:text-gray-200 leading-relaxed">
-                                {point.description}
-                            </p>
+                            {/* Text starts from the same alignment (Left Aligned) */}
+                            <div className="w-full text-left">
+                                <p className="text-sm md:text-base text-gray-300 group-hover:text-gray-200 leading-relaxed">
+                                    {point.description}
+                                </p>
+                            </div>
                         </motion.div>
                     ))}
                 </motion.div>
@@ -113,12 +109,11 @@ const Vision2026 = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.4, duration: 0.8 }}
                     className="max-w-4xl mx-auto text-center flex flex-col items-center"
                 >
-                    <div className="p-6 bg-orange-50 border-l-4 border-r-4 border-[#d4a017] rounded-md shadow-sm mb-10">
+                    <div className="p-8 bg-orange-50 border-x-4 border-[#d4a017] rounded-md shadow-sm mb-10">
                         <p className="text-[#002d4b] font-semibold text-lg md:text-xl italic leading-relaxed">
-                            Vision 2026 moolama, BM Foundation responsible youth leaders ah build panna committed ah irukku. Structured volunteer system moolama grassroots level la real impact create panni, Tamil Nadu la meaningful change kondu varuvadhu namma goal.
+                            "Vision 2026 moolama, BM Foundation responsible youth leaders ah build panna committed ah irukku. Structured volunteer system moolama grassroots level la real impact create panni, Tamil Nadu la meaningful change kondu varuvadhu namma goal."
                         </p>
                     </div>
 
@@ -126,14 +121,13 @@ const Vision2026 = () => {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.97 }}
-                            className="bg-[#d4a017] hover:bg-[#b58812] text-[#002d4b] px-10 py-4 rounded-md font-bold text-lg shadow-lg transition-all flex items-center gap-3 group"
+                            className="bg-[#d4a017] hover:bg-[#b58812] text-[#002d4b] px-10 py-4 rounded-md font-bold text-lg shadow-lg flex items-center gap-3 group"
                         >
                             <span>Be Part of the Vision</span>
                             <MoveRight size={20} className="group-hover:translate-x-1 transition-transform" />
                         </motion.button>
                     </Link>
                 </motion.div>
-
             </div>
         </section>
     );
