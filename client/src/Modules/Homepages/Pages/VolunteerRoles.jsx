@@ -6,7 +6,8 @@ import {
   Monitor,
   Megaphone,
   UserPlus,
-  CheckCircle2
+  CheckCircle2,
+  MoveRight
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -92,16 +93,17 @@ const VolunteerRoles = () => {
               <span className="text-[#d4a017]">Your Volunteering Journey?</span>
             </h2>
             <p className="text-blue-100/80 mt-4 text-lg">
-              BM Foundation-oda volunteering journey start panna idhu first step. Neengalum part aagunga.
+              BM Foundation-oda volunteering journey start panna idhu unga mudhal step. Neengalum innaiku serunga.
             </p>
           </div>
           <Link to="/license">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              className="bg-[#d4a017] hover:bg-[#b88a14] text-white px-10 py-4 rounded-md font-bold text-lg shadow-lg transition-colors"
+              className="bg-[#d4a017] hover:bg-[#b88a14] text-white px-10 py-4 rounded-md font-bold text-lg shadow-lg transition-colors flex items-center justify-center gap-4 group whitespace-nowrap"
             >
-              Start Your Volunteering →
+              <span>Start Your Volunteering</span>
+              <MoveRight size={22} strokeWidth={2.5} className="group-hover:translate-x-1.5 transition-transform" />
             </motion.button>
           </Link>
         </div>

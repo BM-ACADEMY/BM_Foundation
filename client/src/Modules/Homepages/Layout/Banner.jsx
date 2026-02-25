@@ -58,7 +58,7 @@ const Banner = () => {
 
           {/* Description */}
           <motion.p variants={fadeInUp} className="text-gray-400 text-lg mb-10 leading-relaxed border-l-2 border-[#f26522] pl-6 max-w-lg">
-             Namma ooru-ku, namma makkal-ku <span className="text-white font-semibold">real change</span> create panna BM Foundation-la join pannunga.
+             Namma oorukkum, namma makkalukkum <span className="text-white font-semibold">nalladha seiyanum-na</span>, BM Foundation-oda serunga.
           </motion.p>
 
           {/* Buttons & Actions */}
@@ -169,7 +169,7 @@ export default memo(Banner);
 
 //           {/* Description */}
 //           <motion.p variants={fadeInUp} className="text-gray-200 text-lg mb-10 leading-relaxed border-l-4 border-[#f26522] pl-6 drop-shadow-md font-medium">
-//              Namma ooru-ku, namma makkal-ku <span className="text-white font-bold underline decoration-[#f2bc1c]">real change</span> create panna BM Foundation-la join pannunga.
+//              Namma oorukkum, namma makkalukkum <span className="text-white font-bold underline decoration-[#f2bc1c]">nalladha seiyanum-na</span>, BM Foundation-oda serunga.
 //           </motion.p>
 
 //           {/* Buttons & Actions */}

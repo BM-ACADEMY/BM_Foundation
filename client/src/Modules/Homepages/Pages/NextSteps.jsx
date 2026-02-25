@@ -7,17 +7,17 @@ const NextSteps = () => {
   const steps = [
     {
       title: "WhatsApp Contact",
-      description: "Namma team WhatsApp-la 48 hours-kulla contact pannuvaanga.",
+      description: "Namma team WhatsApp-la 48 hours-kulla ungalai contact pannuvaanga. Unga details verify panni next steps explain pannuvaanga.",
       icon: <FaWhatsapp className="w-8 h-8 text-[#d4a017]" />
     },
     {
       title: "Onboarding Kit",
-      description: "Onboarding kit, welcome call, upcoming events details ellam share pannuvaanga.",
+      description: "Welcome call, onboarding details, upcoming events information ellam clear-a share pannuvaanga. Unga volunteering journey smooth-a start aagum.",
       icon: <FaBoxOpen className="w-8 h-8 text-[#d4a017]" />
     },
     {
       title: "Start Your Journey",
-      description: "No pressure. Unga pace-le volunteering start pannalaam.",
+      description: "Yedhum pressure illa. Unga pace-ku suitable-a volunteering start pannalaam. Namma team full support kudukkum.",
       icon: <FaRocket className="w-8 h-8 text-[#d4a017]" />
     }
   ];

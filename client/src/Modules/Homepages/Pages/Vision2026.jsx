@@ -37,19 +37,19 @@ const Vision2026 = () => {
 
     const cardVariants = {
         hidden: { opacity: 0, y: 30 },
-        visible: { 
-            opacity: 1, 
-            y: 0, 
-            transition: { duration: 0.6, ease: "easeOut" } 
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut" }
         }
     };
 
     return (
         <section className="bg-[#fcfcfc] py-24 px-6 lg:px-24 font-sans overflow-hidden">
             <div className="max-w-7xl mx-auto">
-                
+
                 {/* 1. Intro Section - Updated with Full Content */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -60,18 +60,18 @@ const Vision2026 = () => {
                             Our Future
                         </div>
                     </div>
-                    
+
                     <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#002d4b] mb-6">
                         Vision 2026 – <span className="text-[#d4a017]">Empowering Youth Across Districts</span>
                     </h2>
-                    
+
                     <p className="text-lg md:text-xl text-gray-600 leading-[1.8] max-w-4xl mx-auto text-center">
                         By 2026, BM Foundation aims to expand its impact across multiple districts through structured youth development programs, leadership training, and organized volunteer systems. Our vision is to build a strong network of responsible youth leaders who actively contribute to community growth and social transformation.
                     </p>
                 </motion.div>
 
                 {/* 2. GRID CARDS - Alignment Fixed */}
-                <motion.div 
+                <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -87,7 +87,7 @@ const Vision2026 = () => {
                             <div className="w-16 h-16 bg-[#ffffff]/10 group-hover:bg-[#d4a017] rounded-full flex items-center justify-center mb-6 shrink-0 transition-colors duration-300">
                                 <point.icon className="text-[#d4a017] group-hover:text-[#002d4b] transition-colors duration-300" size={32} />
                             </div>
-                            
+
                             <div className="min-h-[60px] flex items-center justify-center w-full mb-4">
                                 <h3 className="text-lg font-bold text-white leading-tight">
                                     {point.title}
@@ -105,7 +105,7 @@ const Vision2026 = () => {
                 </motion.div>
 
                 {/* 3. Closing Section & CTA */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -113,7 +113,7 @@ const Vision2026 = () => {
                 >
                     <div className="p-8 bg-orange-50 border-x-4 border-[#d4a017] rounded-md shadow-sm mb-10">
                         <p className="text-[#002d4b] font-semibold text-lg md:text-xl italic leading-relaxed">
-                            "Vision 2026 moolama, BM Foundation responsible youth leaders ah build panna committed ah irukku. Structured volunteer system moolama grassroots level la real impact create panni, Tamil Nadu la meaningful change kondu varuvadhu namma goal."
+                            "Vision 2026 moolama, BM Foundation responsible youth leaders-ah uruvaakka strong-a commit pannirukkom. Structured volunteer system moolama grassroots level la real-a work panni, Tamil Nadu la meaningful change kondu varuvadhu namma goal."
                         </p>
                     </div>
 
