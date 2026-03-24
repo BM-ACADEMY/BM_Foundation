@@ -15,15 +15,26 @@ import Logo from "../../../assets/Foundation/bmf_logo.png";
 
 const Footer = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleNavClick = (path) => {
+  const handleNavClick = (e, path) => {
     if (path.includes("#")) {
-      // For hash links, use window.location.href to trigger native hash scrolling
-      window.location.href = path;
+      e.preventDefault();
+      const [route, hash] = path.split("#");
+      
+      if (location.pathname !== route) {
+        navigate(route);
+        // Wait for navigation and then scroll
+        setTimeout(() => {
+          const el = document.getElementById(hash);
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }, 500);
+      } else {
+        const el = document.getElementById(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }
     } else {
-      // For regular links, use navigate and scroll to top
-      navigate(path);
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -108,7 +119,8 @@ const Footer = () => {
               {menuItems.map((item) => (
                 <li key={item.label}>
                   <Link
-                    onClick={() => handleNavClick(item.path)}
+                    to={item.path}
+                    onClick={(e) => handleNavClick(e, item.path)}
                     className="group flex items-center gap-2 text-gray-300 text-sm hover:text-[#f2bc1c] hover:translate-x-1 transition-all"
                   >
                     <span className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#f26522]">
@@ -185,8 +197,8 @@ const Footer = () => {
           <p className="text-[#f2bc1c] text-sm font-medium tracking-wide">
             சமூக மாற்றத்திற்கான சிறு முயற்சி – உங்கள் பங்களிப்புடன்
           </p>
-          <p className="text-xs text-gray-500 text-center">
-            © {new Date().getFullYear()} BMTechx.in. All Rights Reserved.
+          <p className="text-xs text-gray-400 text-center">
+            © {new Date().getFullYear()} <a href="https://bmtechx.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#f2bc1c] transition-colors ">BMTechx.in</a>. All Rights Reserved.
           </p>
         </div>
 
