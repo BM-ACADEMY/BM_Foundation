@@ -34,6 +34,7 @@ export default function License() {
     areas_of_interest: [], availability: "", previous_experience: "",
     emergency_contact_name: "", emergency_contact_phone: "",
     heard_from: "",
+    agreed: false,
   });
 
   const [previewUrl, setPreviewUrl] = useState(null);
@@ -115,6 +116,7 @@ export default function License() {
     }
     if (step === 3) {
         if (!formData.photo) { toast.error("Upload photo"); return false; }
+        if (!formData.agreed) { toast.error("Please agree to the terms and conduct"); return false; }
         return true;
     }
     return true;
@@ -296,6 +298,25 @@ export default function License() {
                               <p className="text-xs text-gray-400 mt-2">Max size 5MB. Formats: JPG, PNG.</p>
                            </div>
                         </div>
+                     </div>
+
+                     {/* Agree Checkbox */}
+                     <div className="md:col-span-2 mt-8 p-4 bg-orange-50/50 rounded-xl border border-orange-100">
+                        <label className="flex items-start gap-3 cursor-pointer group">
+                           <div className="relative flex items-center mt-1">
+                              <input 
+                                 type="checkbox" 
+                                 name="agreed" 
+                                 checked={formData.agreed}
+                                 onChange={(e) => setFormData(p => ({ ...p, agreed: e.target.checked }))}
+                                 className="w-5 h-5 border-2 border-gray-300 rounded text-[#f26522] focus:ring-[#f26522] cursor-pointer accent-[#f26522]" 
+                              />
+                           </div>
+                           <span className="text-sm text-[#002d4b] leading-relaxed">
+                              I hereby declare that all the information provided is true to the best of my knowledge. 
+                              I agree to abide by the <strong>BM Foundation Code of Conduct</strong> and serve the community with integrity. *
+                           </span>
+                        </label>
                      </div>
                 </div>
              </motion.div>

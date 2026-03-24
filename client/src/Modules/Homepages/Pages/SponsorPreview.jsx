@@ -91,7 +91,7 @@ const SponsorPreview = () => {
                             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/5 rounded-full blur-2xl"></div>
                             
                             <h3 className="text-2xl md:text-3xl font-bold mb-6 italic leading-snug">
-                                "அறம் செய்ய விரும்பு – <br />
+                                "அறம் செய் விரும்பு – <br />
                                 <span className="text-[#d4a017] not-italic">Desire to do Charity."</span>
                             </h3>
                             

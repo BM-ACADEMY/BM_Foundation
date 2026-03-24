@@ -237,7 +237,7 @@ export default function MembershipDownload() {
       <div className="max-w-6xl w-full mt-20 bg-[#002d4b] rounded-2xl p-12 flex flex-col md:flex-row items-center justify-between gap-10 shadow-xl">
         <div className="text-center md:text-left">
           <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
-            <span className="text-[#d4a017]">அறம் செய்ய விரும்பு</span>
+            <span className="text-[#d4a017]">அறம் செய் விரும்பு</span>
           </h2>
           <p className="text-blue-100/80 text-xl font-medium tracking-wide">
             சேவை மனப்பான்மையே சமூக முன்னேற்றத்தின் அடித்தளம்
