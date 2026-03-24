@@ -40,6 +40,7 @@ import Contact from "../Modules/Homepages/Pages/Contact";
 import LicenseCardPdfWrapper from "../Modules/Homepages/Pages/LicenseCardPdfWrapper";
 import Gallery from "../Modules/Homepages/Pages/Gallery";
 import SponsorPage from "../Modules/Homepages/Pages/sponsor/SponsorPage";
+import ThankYou from "../Modules/Homepages/Pages/ThankYou";
 const AppRoutes = () => {
   return (
     <Router>
@@ -104,6 +105,14 @@ const AppRoutes = () => {
           element={
             <Layout>
               <SponsorPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/thank-you"
+          element={
+            <Layout>
+              <ThankYou />
             </Layout>
           }
         />

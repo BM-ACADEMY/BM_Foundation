@@ -40,7 +40,7 @@ class License(models.Model):
         null=True,
         blank=True,
     )
-    ward_number = models.CharField(max_length=20)
+    ward_number = models.CharField(max_length=20, blank=True, null=True)
     phone = models.CharField(max_length=15, unique=True)
     email = models.EmailField(blank=True, null=True)
     address = models.TextField()
@@ -108,13 +108,6 @@ class License(models.Model):
         blank=True,
         null=True,
         help_text="How did you hear about us",
-    )
-
-    signature = models.CharField(
-        max_length=150,
-        blank=True,
-        null=True,
-        help_text="Signed name or digital signature",
     )
 
     # ----------------------------

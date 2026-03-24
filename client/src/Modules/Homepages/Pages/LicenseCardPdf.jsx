@@ -8,6 +8,7 @@ import API from "../../../api";
 // Import your logo here
 import logo from "../../../assets/Foundation/bmf_logo.png";
 import bmfseal from "../../../assets/Foundation/bmfseal.png";
+import sign from "../../../assets/sign.png";
 export default function LicenseCardPdf({ license }) {
   const frontRef = useRef(null);
   const backRef = useRef(null);
@@ -218,7 +219,7 @@ export default function LicenseCardPdf({ license }) {
             {/* Signature */}
             <div style={{ position: "absolute", bottom: "20px", right: "20px", textAlign: "center" }}>
                 <img
-                    src={ASSETS.signature}
+                    src={sign}
                     alt="Sign"
                     crossOrigin="anonymous"
                     style={{ width: "80px", height: "40px", objectFit: "contain", marginBottom: "5px" }}

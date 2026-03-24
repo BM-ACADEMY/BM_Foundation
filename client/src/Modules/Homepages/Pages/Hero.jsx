@@ -23,7 +23,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-full bg-slate-50 py-20 px-6 md:px-12 lg:px-24 overflow-hidden" id="about">
+    <section className="relative w-full bg-slate-50 py-20 px-6 md:px-12 lg:px-24 overflow-hidden">
 
       {/* Decorative Background Element */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-orange-50/50 skew-x-12 translate-x-20 z-0" />

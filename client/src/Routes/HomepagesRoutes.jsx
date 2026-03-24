@@ -10,7 +10,8 @@ import VolunteerRoles from "../Modules/Homepages/Pages/VolunteerRoles";
 import NextSteps from "../Modules/Homepages/Pages/NextSteps";
 import Gallery from "../Modules/Homepages/Pages/Gallery";
 import FounderMessage from "../Modules/Homepages/Pages/FounderMessage";
-import Vision2026 from "../Modules/Homepages/Pages/Vision2026";
+import Vision2030 from "../Modules/Homepages/Pages/Vision2030.jsx";
+import SponsorPreview from "../Modules/Homepages/Pages/SponsorPreview";
 
 const HomepagesRoutes = () => {
   return (
@@ -19,7 +20,8 @@ const HomepagesRoutes = () => {
       <Banner />
       <Hero />
       <FounderMessage />
-      <Vision2026 />
+      <Vision2030 />
+      <SponsorPreview />
       <VolunteerRoles />
       <NextSteps />
       {/* <Home /> */}

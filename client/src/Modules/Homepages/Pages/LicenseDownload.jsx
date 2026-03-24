@@ -262,8 +262,8 @@ export default function MembershipDownload() {
         <div className="grid md:grid-cols-3 gap-6">
             <StepCard
                 icon={<FaWhatsapp className="text-green-500" />}
-                title="Join Local Community"
-                desc="Get added to your local WhatsApp community using your verified membership ID."
+                title="Join Local Group"
+                desc="Get added to your local WhatsApp group using your verified membership ID."
             />
             <StepCard
                 icon={<Star className="text-[#d4a017]" />}

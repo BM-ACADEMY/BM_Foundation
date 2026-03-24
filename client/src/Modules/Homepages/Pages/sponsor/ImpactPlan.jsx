@@ -48,7 +48,7 @@ const ImpactPlan = () => {
         {
             id: 5,
             month: "July",
-            title: "Community Medical Camp",
+            title: "General Medical Camp",
             subtitle: "Preventative Healthcare",
             target: "200+ Beneficiaries",
             budget: 50000,
@@ -100,7 +100,7 @@ const ImpactPlan = () => {
                             100% Financial Transparency
                         </div>
                         <h2 className="text-3xl md:text-5xl font-bold text-[#002d4b] leading-tight mb-4">
-                            Impact & Allocation <br/> <span className="text-gray-400">Prospectus 2026</span>
+                            Impact & Allocation <br/> <span className="text-gray-400">Prospectus 2030</span>
                         </h2>
                         <p className="text-lg text-gray-600 leading-relaxed">
                             Every rupee sponsored is directed strictly towards the designated program. Post-execution, sponsors receive detailed impact reports and audited expense breakdowns.

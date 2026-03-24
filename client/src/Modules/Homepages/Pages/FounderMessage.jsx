@@ -15,7 +15,7 @@ const FounderMessageCentered = () => {
     };
 
     return (
-        <section className="bg-[#fcfcfc] py-24 px-6 lg:px-24 font-sans overflow-hidden">
+        <section id="about" style={{ scrollMarginTop: "100px" }} className="bg-[#fcfcfc] py-24 px-6 lg:px-24 font-sans overflow-hidden">
             <div className="max-w-6xl mx-auto flex flex-col items-center text-center">
                 
                 {/* 1. Header & English Subtitle */}

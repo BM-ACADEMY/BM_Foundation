@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
@@ -22,17 +23,17 @@ const INTERESTS = [
 ];
 
 export default function License() {
+  const navigate = useNavigate();
   const fileInputRef = useRef(null);
 
   // State for Multi-Step Form
   const [currentStep, setCurrentStep] = useState(1);
-
   const [formData, setFormData] = useState({
     full_name: "", age: "", gender: "", ward_number: "",
     phone: "", email: "", address: "", photo: null,
     areas_of_interest: [], availability: "", previous_experience: "",
     emergency_contact_name: "", emergency_contact_phone: "",
-    heard_from: "", signature: "",
+    heard_from: "",
   });
 
   const [previewUrl, setPreviewUrl] = useState(null);
@@ -102,7 +103,7 @@ export default function License() {
     if (step === 1) {
         if (!formData.full_name) { toast.error("Enter full name"); return false; }
         if (!formData.gender) { toast.error("Select gender"); return false; }
-        if (!formData.ward_number) { toast.error("Enter ward number"); return false; }
+        // Ward Number is now optional
         if (formData.phone.length !== 10) { toast.error("Invalid phone number"); return false; }
         if (phoneAvailable === false) { toast.error("Phone already registered"); return false; }
         if (!formData.address) { toast.error("Enter address"); return false; }
@@ -114,7 +115,6 @@ export default function License() {
     }
     if (step === 3) {
         if (!formData.photo) { toast.error("Upload photo"); return false; }
-        if (!formData.signature) { toast.error("Signature required"); return false; }
         return true;
     }
     return true;
@@ -149,7 +149,7 @@ export default function License() {
         headers: { "Content-Type": "multipart/form-data" },
       });
       toast.success("Volunteer application submitted successfully!");
-      window.location.reload();
+      navigate("/thank-you");
     } catch (err) {
       toast.error(err.response?.data?.error || "Submission failed");
     } finally {
@@ -230,7 +230,7 @@ export default function License() {
                   </div>
 
                   <InputGroup label="Email Address" name="email" type="email" placeholder="Optional – for updates and certificates" value={formData.email} onChange={handleChange} icon={<Mail size={18} />} />
-                  <InputGroup label="Ward Number" name="ward_number" placeholder="Your Ward No." value={formData.ward_number} onChange={handleChange} required icon={<MapPin size={18}/>} />
+                  <InputGroup label="Ward / Booth" name="ward_number" placeholder="Your Ward No." value={formData.ward_number} onChange={handleChange} icon={<MapPin size={18}/>} />
 
                   <div className="md:col-span-2">
                     <label className="block text-sm font-bold text-gray-700 mb-2">Full Address *</label>
@@ -284,9 +284,8 @@ export default function License() {
                   <CheckCircle2 className="text-[#f26522]" size={24} /> Verification
                 </h3>
                 <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                      {/* Photo */}
-                     <div>
+                     <div className="md:col-span-2">
                         <label className="block text-sm font-bold text-[#002d4b] mb-3">Upload Your Photo *</label>
                         <div className="flex items-center gap-6">
                            <div className="w-24 h-24 rounded-full bg-gray-200 overflow-hidden border-2 border-white shadow-md flex-shrink-0">
@@ -298,12 +297,6 @@ export default function License() {
                            </div>
                         </div>
                      </div>
-                     {/* Signature */}
-                     <div>
-                        <InputGroup label="Digital Signature *" name="signature" placeholder="Type your full name to sign" value={formData.signature} onChange={handleChange} icon={<PenTool size={18}/>} />
-                        <p className="text-xs text-gray-400 mt-2">By typing your name, you agree to the BM Foundation code of conduct.</p>
-                     </div>
-                  </div>
                 </div>
              </motion.div>
            )}

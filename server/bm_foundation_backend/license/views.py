@@ -61,7 +61,7 @@ class LicenseViewSet(viewsets.ViewSet):
             return Response({"error": "MongoDB not connected"}, status=503)
 
         data = request.data
-        required_fields = ["full_name", "gender", "ward_number", "phone"]
+        required_fields = ["full_name", "gender", "phone"]
 
         for field in required_fields:
             if not data.get(field):
@@ -125,7 +125,6 @@ class LicenseViewSet(viewsets.ViewSet):
             "emergency_contact_name": data.get("emergency_contact_name"),
             "emergency_contact_phone": data.get("emergency_contact_phone"),
             "heard_from": data.get("heard_from"),
-            "signature": data.get("signature"),
             "is_approved": False,
             "license_pdf": None,
         }

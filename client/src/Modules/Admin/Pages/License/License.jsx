@@ -208,7 +208,7 @@ export default function LicenseAdminSplit() {
                             <h2 className="text-3xl font-black text-[#002d4b] mb-2">{selectedItem.full_name}</h2>
                             <div className="flex flex-col gap-1.5 text-sm mb-3">
                                 <span className="flex items-center gap-2 font-medium text-gray-700">
-                                    <MapPin size={16} className="text-[#f26522]"/> Ward: {selectedItem.ward_number}
+                                    <MapPin size={16} className="text-[#f26522]"/> Ward / Booth: {selectedItem.ward_number || "N/A"}
                                 </span>
                                 <span className="flex items-center gap-2 font-medium text-gray-700">
                                     <Phone size={16} className="text-[#f26522]"/> {selectedItem.phone}

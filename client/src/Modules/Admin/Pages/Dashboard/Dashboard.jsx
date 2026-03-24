@@ -49,7 +49,7 @@ const Dashboard = () => {
             <h2 className="text-lg font-bold text-gray-800 mb-4">Recent Activities</h2>
             <ul className="space-y-4">
               {[
-                { text: "New blog post published: 'Community Guidelines'", time: "2 hours ago", type: "blog" },
+                { text: "New blog post published: 'Guidelines'", time: "2 hours ago", type: "blog" },
                 { text: "Gallery updated with 3 new images", time: "5 hours ago", type: "image" },
                 { text: "New membership inquiry received", time: "1 day ago", type: "user" },
               ].map((activity, i) => (

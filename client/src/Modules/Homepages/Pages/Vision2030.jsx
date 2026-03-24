@@ -3,7 +3,7 @@ import { Globe, Tent, Mic, Handshake, MoveRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const Vision2026 = () => {
+const Vision2030 = () => {
     const visionPoints = [
         {
             title: "District Youth Chapters",
@@ -62,11 +62,11 @@ const Vision2026 = () => {
                     </div>
 
                     <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#002d4b] mb-6">
-                        Vision 2026 – <span className="text-[#d4a017]">Empowering Youth Across Districts</span>
+                        Vision 2030 – <span className="text-[#d4a017]">Empowering Youth Across Districts</span>
                     </h2>
 
                     <p className="text-lg md:text-xl text-gray-600 leading-[1.8] max-w-4xl mx-auto text-center">
-                        By 2026, BM Foundation aims to expand its impact across multiple districts through structured youth development programs, leadership training, and organized volunteer systems. Our vision is to build a strong network of responsible youth leaders who actively contribute to community growth and social transformation.
+                        By 2030, BM Foundation aims to expand its impact across multiple districts through structured youth development programs, leadership training, and organized volunteer systems. Our vision is to build a strong network of responsible youth leaders who actively contribute to community growth and social transformation.
                     </p>
                 </motion.div>
 
@@ -113,7 +113,7 @@ const Vision2026 = () => {
                 >
                     <div className="p-8 bg-orange-50 border-x-4 border-[#d4a017] rounded-md shadow-sm mb-10">
                         <p className="text-[#002d4b] font-semibold text-lg md:text-xl italic leading-relaxed">
-                            "Vision 2026 moolama, BM Foundation responsible youth leaders-ah uruvaakka strong-a commit pannirukkom. Structured volunteer system moolama grassroots level la real-a work panni, Tamil Nadu la meaningful change kondu varuvadhu namma goal."
+                            "Vision 2030 moolama, BM Foundation responsible youth leaders-ah uruvaakka strong-a commit pannirukkom. Structured volunteer system moolama grassroots level la real-a work panni, Tamil Nadu la meaningful change kondu varuvadhu namma goal."
                         </p>
                     </div>
 
@@ -133,4 +133,4 @@ const Vision2026 = () => {
     );
 };
 
-export default Vision2026;
+export default Vision2030;

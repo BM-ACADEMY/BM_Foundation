@@ -75,13 +75,13 @@ const Hero = () => {
                         </div>
 
                         <h2 className="text-2xl md:text-3xl font-bold text-white leading-snug mb-4">
-                            Structured 6-Month Community Impact Plan
+                            Structured 6-Month Social Impact Plan
                         </h2>
 
                         <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
                             <div>
                                 <p className="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-1">Timeline</p>
-                                <p className="text-[#d4a017] font-bold text-xl">March – August 2026</p>
+                                <p className="text-[#d4a017] font-bold text-xl">March – August 2030</p>
                             </div>
                         </div>
                     </div>

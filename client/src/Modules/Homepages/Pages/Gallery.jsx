@@ -40,7 +40,7 @@ const galleryData = [
   },
   {
     id: 4,
-    category: "Community",
+    category: "Social",
     src: image4,
     title: "",
   },
@@ -52,7 +52,7 @@ const galleryData = [
   },
 ];
 
-const categories = ["All", "Community", "Events"];
+const categories = ["All", "Social", "Events"];
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -80,7 +80,7 @@ const Gallery = () => {
               Our <span className="text-[#f26522]">Impact</span> Gallery
             </h1>
             <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-              Moments captured from our journey of serving the community.
+              Moments captured from our journey of serving the society.
               Witness the change we bring together.
             </p>
         </motion.div>
