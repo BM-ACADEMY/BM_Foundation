@@ -197,9 +197,9 @@ export default function LicenseAdminSplit() {
                   {/* DETAIL HEADER */}
                   <div className="flex items-start justify-between mb-8 pb-6 border-b border-gray-100">
                      <div className="flex gap-6">
-                        <div className="w-44 h-24 rounded-xl border-4 border-white shadow-lg overflow-hidden bg-gray-100">
+                        <div className="w-44 h-24">
                             {selectedItem.photo ? (
-                                <img src={selectedItem.photo} className="w-full h-full object-cover" alt="Profile" />
+                                <img src={selectedItem.photo} className="w-24 h-24 " alt="Profile" />
                             ) : (
                                 <User className="w-full h-full p-6 text-gray-300" />
                             )}
