@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { motion } from "framer-motion";
-import image from "../../../assets/bm foundation.jpg.jpeg"; 
+import bannerVideo from "../../../assets/bm1.mp4";
 import { Link } from "react-router-dom";
 
 const fadeInUp = {
@@ -18,17 +18,22 @@ const Banner = () => {
   return (
     <section className="relative w-full min-h-screen flex items-center bg-black overflow-hidden">
       
-      {/* ---------------- 1. BLENDED IMAGE BACKGROUND ---------------- */}
-      {/* The image is positioned to the right, but fades out to the left */}
+      {/* ---------------- 1. BLENDED VIDEO BACKGROUND ---------------- */}
+      {/* The video is positioned to the right, but fades out to the left */}
       <div className="absolute top-0 right-0 w-full md:w-[70%] h-full z-0">
-        <div 
-          className="w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${image})` }}
-        >
-           {/* Gradient Mask: Fades the image into black on the left & bottom */}
-           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
-           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            src={bannerVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          />
         </div>
+        {/* Gradient Mask: Fades the video into black on the left & bottom */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-10 pointer-events-none" />
       </div>
 
       {/* ---------------- 2. CONTENT CONTENT ---------------- */}

@@ -2,8 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, MoveRight, Heart, Quote } from "lucide-react";
 import { Link } from "react-router-dom";
-import FoundationImg2 from "../../../assets/foundation 2.jpg.jpeg";
 import FoundationImg3 from "../../../assets/foundation 3.jpg.jpeg";
+import HeroVideo from "../../../assets/bm.mp4";
 
 const Hero = () => {
   // Animation Variants for Staggered List
@@ -36,22 +36,25 @@ const Hero = () => {
           <div className="absolute -top-4 -left-4 w-24 h-24 bg-[url('https://www.transparenttextures.com/patterns/dots-spaced-0-5.png')] opacity-20" />
 
           <div className="relative h-[500px] md:h-[600px] w-full">
-            {/* Main Tall Image */}
+            {/* Main Tall Video */}
             <motion.div
               initial={{ clipPath: "inset(0 100% 0 0)" }}
               whileInView={{ clipPath: "inset(0 0 0 0)" }}
               transition={{ duration: 1, ease: "circOut" }}
               viewport={{ once: true }}
-              className="absolute top-0 left-0 w-[85%] h-[85%] rounded-2xl overflow-hidden z-10 shadow-2xl"
+              className="absolute top-0 left-0 w-[85%] h-[85%] rounded-2xl overflow-hidden z-10 shadow-2xl bg-black"
             >
-              <img
-                src={FoundationImg2}
-                alt="BM Foundation Activity"
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+              <video
+                src={HeroVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </motion.div>
 
-            {/* Secondary Overlapping Image */}
+            {/* Secondary Overlapping Image
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +67,7 @@ const Hero = () => {
                 alt="Volunteers"
                 className="w-full h-full object-cover"
               />
-            </motion.div>
+            </motion.div> */}
 
 
           </div>
