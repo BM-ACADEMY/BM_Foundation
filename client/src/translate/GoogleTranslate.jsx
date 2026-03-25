@@ -133,15 +133,18 @@ const GoogleTranslate = () => {
     <div className="relative flex items-center bg-white border border-slate-200 rounded-md px-2 py-1 shadow-sm hover:shadow-md transition-all">
       <FaGlobe className="text-[#00224D] text-lg shrink-0 pointer-events-none" />
 
+      {/* Visible text that perfectly hugs the selected language name */}
+      <span className="text-sm font-semibold text-[#00224D] px-2 py-1 pointer-events-none whitespace-nowrap">
+        {languages.find((l) => l.code === selectedLanguage)?.label || "English"}
+      </span>
+
+      <div className="pointer-events-none text-[#00224D] text-xs pr-1">▼</div>
+
+      {/* Invisible <select> overlay that stretches over the container to handle clicks */}
       <select
         value={selectedLanguage}
         onChange={handleLanguageChange}
-        className="notranslate appearance-none bg-transparent border-none text-sm font-semibold text-[#00224D] px-2 py-1 focus:outline-none cursor-pointer w-full"
-        style={{ 
-             WebkitAppearance: "none", 
-             MozAppearance: "none",
-             minWidth: "120px"
-        }}
+        className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer appearance-none"
       >
         {languages.map((lang) => (
           <option key={lang.code} value={lang.code}>
@@ -149,8 +152,6 @@ const GoogleTranslate = () => {
           </option>
         ))}
       </select>
-
-      <div className="pointer-events-none text-[#00224D] text-xs">▼</div>
 
       {/* --- THE TRICK: Move it OFF-SCREEN but keep it 'visible' to code --- */}
       <div

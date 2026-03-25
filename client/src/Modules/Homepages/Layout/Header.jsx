@@ -67,7 +67,7 @@ const Header = () => {
       {/* Top Gradient Line */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#b38a11] via-[#1a1a1a] to-[#8b0000]" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* ---------------- 1. LOGO SECTION ---------------- */}
           <Link
@@ -94,7 +94,7 @@ const Header = () => {
           </Link>
 
           {/* ---------------- 2. CENTER NAVIGATION ---------------- */}
-          <nav className="hidden lg:flex flex-1 justify-center items-center gap-4 xl:gap-8 px-4 xl:px-8">
+          <nav className="hidden lg:flex flex-1 justify-center items-center gap-2 lg:gap-4 xl:gap-8 px-2 xl:px-8">
             {menuItems.map((item) => {
               const active =
                 location.pathname === item.path.split("#")[0] &&
@@ -123,7 +123,7 @@ const Header = () => {
           {/* ---------------- 3. RIGHT ACTIONS ---------------- */}
           <div className="flex items-center gap-3 sm:gap-4 shrink-0">
             <div className="hidden lg:block relative z-40">
-              <div className="h-8 flex items-center overflow-hidden min-w-[120px]">
+              <div className="h-8 flex items-center overflow-hidden">
                 <GoogleTranslate targetId="google_translate_desktop" />
               </div>
             </div>
