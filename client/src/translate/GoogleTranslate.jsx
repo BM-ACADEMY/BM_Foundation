@@ -75,6 +75,60 @@ const GoogleTranslate = () => {
     }
   };
 
+  useEffect(() => {
+    let observer;
+    let interval;
+    
+    if (selectedLanguage === "ta") {
+      const replaceText = () => {
+        const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+        let n;
+        while ((n = walk.nextNode())) {
+          if (n.nodeValue) {
+            // Because Google Translate often splits text across multiple <font> tags or spans (e.g. Header),
+            // "BM Foundation" might be translated as "பிஎம்" and "அறக்கட்டளை" in separate nodes.
+            // We globally replace "அறக்கட்டளை" (Foundation) with "ஃபவுண்டேஷன்".
+            if (n.nodeValue.includes("பிஎம் அறக்கட்டளை")) {
+              n.nodeValue = n.nodeValue.replace(/பிஎம் அறக்கட்டளை/g, "பிஎம் ஃபவுண்டேஷன்");
+            }
+            if (n.nodeValue.includes("அறக்கட்டளை")) {
+              n.nodeValue = n.nodeValue.replace(/அறக்கட்டளை/g, "ஃபவுண்டேஷன்");
+            }
+          }
+        }
+      };
+
+      // Create an observer to watch for text node changes made by Google Translate
+      observer = new MutationObserver((mutations) => {
+        let hasChanges = false;
+        mutations.forEach((mutation) => {
+          if (mutation.type === "characterData" || mutation.type === "childList") {
+            hasChanges = true;
+          }
+        });
+        if (hasChanges) {
+          replaceText();
+        }
+      });
+
+      observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+
+      // Check periodically for a short while in case Google Translate is slow
+      let count = 0;
+      interval = setInterval(() => {
+        replaceText();
+        count++;
+        if (count > 20) clearInterval(interval); // Stop checking after 10 seconds
+      }, 500);
+    }
+
+    return () => {
+      if (observer) observer.disconnect();
+      if (interval) clearInterval(interval);
+    };
+  }, [selectedLanguage]);
+
+
   return (
     <div className="relative flex items-center bg-white border border-slate-200 rounded-md px-2 py-1 shadow-sm hover:shadow-md transition-all">
       <FaGlobe className="text-[#00224D] text-lg shrink-0 pointer-events-none" />
