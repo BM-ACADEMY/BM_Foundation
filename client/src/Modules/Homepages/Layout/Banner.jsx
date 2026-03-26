@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { motion } from "framer-motion";
-import bannerVideo from "../../../assets/bm1.mp4";
+import bannerVideo from "../../../assets/bm3.mp4";
 import { Link } from "react-router-dom";
 
 const fadeInUp = {

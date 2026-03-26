@@ -218,7 +218,7 @@ export default function License() {
                   <div className="grid grid-cols-2 gap-4">
                      <InputGroup label="Age" name="age" type="number" placeholder="Enter your age" value={formData.age} onChange={handleChange} />
                      <SelectGroup label="Gender" name="gender" value={formData.gender} onChange={handleChange} options={[
-                        { val: "male", txt: "Male" }, { val: "female", txt: "Female" }, { val: "other", txt: "Other" }
+                        { val: "male", txt: "Male" }, { val: "female", txt: "Female" }, { val: "third_gender", txt: "Third Gender" }
                      ]} required />
                   </div>
 

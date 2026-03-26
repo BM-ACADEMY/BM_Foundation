@@ -259,7 +259,7 @@ export default function LicenseAdminSplit() {
                       </div>
                       <div>
                           <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Gender / Age</p>
-                          <p className="font-medium text-gray-800 capitalize">{selectedItem.gender} / {selectedItem.age} Years</p>
+                          <p className="font-medium text-gray-800 capitalize">{selectedItem.gender?.replace(/_/g, ' ')} / {selectedItem.age} Years</p>
                       </div>
                       <div>
                           <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Emergency Contact</p>

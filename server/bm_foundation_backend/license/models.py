@@ -8,7 +8,7 @@ class License(models.Model):
     GENDER_CHOICES = (
         ("male", "Male"),
         ("female", "Female"),
-        ("other", "Other"),
+        ("third_gender", "Third Gender"),
     )
 
     BLOOD_GROUP_CHOICES = (
@@ -35,7 +35,7 @@ class License(models.Model):
     full_name = models.CharField(max_length=150)
     age = models.PositiveIntegerField(null=True, blank=True)
     gender = models.CharField(
-        max_length=10,
+        max_length=20,
         choices=GENDER_CHOICES,
         null=True,
         blank=True,
