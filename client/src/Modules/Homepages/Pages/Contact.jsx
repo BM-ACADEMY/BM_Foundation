@@ -125,8 +125,8 @@ const Contact = () => {
                   <h4 className="text-xs font-bold text-[#002d4b] uppercase tracking-widest mb-1 opacity-60">
                     Email Us
                   </h4>
-                  <a href="mailto:support@bmfoundation.org" className="text-slate-800 font-bold hover:text-[#f26522] transition break-all">
-                    support@bmfoundation.org
+                  <a href="mailto:admin@abmgroups.org" className="text-slate-800 font-bold hover:text-[#f26522] transition break-all">
+                    admin@abmgroups.org
                   </a>
                 </div>
               </div>

@@ -23,8 +23,8 @@ const SupportWidget = () => {
         {
             name: "Email Us",
             icon: Mail,
-            value: "support@bmfoundation.org",
-            link: "mailto:support@bmfoundation.org",
+            value: "admin@abmgroups.org",
+            link: "mailto:admin@abmgroups.org",
             color: "bg-red-50 text-red-600"
         }
     ];

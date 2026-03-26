@@ -52,15 +52,25 @@ const Hero = () => {
                     </motion.h1>
 
                     <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 mt-4">
-                        <button className="bg-[#f2bc1c] hover:bg-[#b8860b] text-[#002d4b] px-8 py-4 rounded-md font-bold text-lg shadow-[0_0_15px_rgba(212,160,23,0.4)] transition-all flex items-center gap-3 group">
+                        <a 
+                            href="https://wa.me/918056889971?text=Hello%20BM%20Foundation%2C%20I%20am%20interested%20in%20becoming%20a%20sponsor.%20Please%20provide%20me%20with%20more%20details."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-[#f2bc1c] hover:bg-[#b8860b] text-[#002d4b] px-8 py-4 rounded-md font-bold text-lg shadow-[0_0_15px_rgba(212,160,23,0.4)] transition-all flex items-center gap-3 group"
+                        >
                             Become a Sponsor
                             <MoveRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        </a>
 
-                        <button className="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-md font-bold text-lg transition-all flex items-center gap-3 group backdrop-blur-sm">
+                        <a 
+                            href="https://wa.me/918056889971?text=Hello%20BM%20Foundation%2C%20I%20am%20interested%20in%20supporting%20a%20program.%20Please%20provide%20me%20with%20more%20details."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-md font-bold text-lg transition-all flex items-center gap-3 group backdrop-blur-sm"
+                        >
                             Support a Program
                             <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                        </button>
+                        </a>
                     </motion.div>
                 </motion.div>
 
