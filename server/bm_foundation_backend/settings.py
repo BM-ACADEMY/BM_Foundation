@@ -27,11 +27,11 @@ DEBUG = os.getenv("DEBUG", "False").lower() in ["true", "1", "yes"]
 RENDER_EXTERNAL_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME")
 
 ALLOWED_HOSTS = [
-    "localhost",
+    "api.thebmfoundation.org",
+    "thebmfoundation.org",
+    "www.thebmfoundation.org",
     "127.0.0.1",
-    "82.25.85.114",
-
-    
+    "localhost",
 ]
 
 
@@ -179,8 +179,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "bm_foundation_backend", "static")]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Media files (user uploads)
+MEDIA_ROOT = "/var/www/bmfoundation_media"
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 
 # -----------------------------
