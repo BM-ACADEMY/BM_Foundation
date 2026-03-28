@@ -228,7 +228,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Site domain
 # -----------------------------
 if not DEBUG:
-    SITE_DOMAIN = "https://api.namathumakkalkazhagam.com"
+    SITE_DOMAIN = "https://api.thebmfoundation.org"
 
 else:
     SITE_DOMAIN = "http://127.0.0.1:8000"
