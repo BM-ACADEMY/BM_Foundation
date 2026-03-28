@@ -80,7 +80,7 @@ const Banner = () => {
               </motion.button>
             </Link>
 
-            {/* QR Code Block */}
+            {/* QR Code Block
             <div className="flex items-center gap-4 group">
                <div className="p-1 bg-white rounded-lg opacity-90 group-hover:opacity-100 transition-opacity">
                  <Link to="/license">
@@ -95,7 +95,7 @@ const Banner = () => {
                  <p className="text-white text-sm font-bold uppercase">Scan to Join</p>
                  <p className="text-gray-500 text-xs">Instant Access</p>
                </div>
-            </div>
+            </div> */}
 
           </motion.div>
 
