@@ -141,7 +141,7 @@ const Header = () => {
             {/* Sponsor Button (Desktop) */}
             <button
               onClick={() => navigate("/sponsor")}
-              className="hidden sm:flex group relative overflow-hidden bg-transparent border-2 border-[#002d4b] text-[#002d4b] hover:text-white hover:bg-[#002d4b] text-xs sm:text-sm font-bold py-2 px-4 rounded-md shadow-sm transition-all duration-300 items-center gap-2 whitespace-nowrap"
+              className="hidden sm:flex group relative overflow-hidden bg-transparent border-2 border-[#002d4b] text-[#002d4b] hover:text-white hover:bg-[#002d4b] text-xs sm:text-sm font-bold py-2 px-4 rounded-md shadow-sm transition-all duration-300 items-center gap-2 whitespace-nowrap cursor-pointer"
             >
               <span className="uppercase tracking-wide">Sponsor</span>
             </button>
@@ -149,7 +149,7 @@ const Header = () => {
             {/* Join Us Button (Desktop) */}
             <button
               onClick={() => navigate("/license")}
-              className="hidden sm:flex group relative overflow-hidden bg-[#002d4b] text-white text-xs sm:text-sm font-bold py-2.5 px-5 rounded-md shadow-lg transition-all duration-300 hover:shadow-[#f26522]/30 hover:bg-[#f26522] items-center gap-2 whitespace-nowrap"
+              className="hidden sm:flex group relative overflow-hidden bg-[#002d4b] text-white text-xs sm:text-sm font-bold py-2.5 px-5 rounded-md shadow-lg transition-all duration-300 hover:shadow-[#f26522]/30 hover:bg-[#f26522] items-center gap-2 whitespace-nowrap cursor-pointer"
             >
               <span className="uppercase tracking-wide">Join Us</span>
               <HeartHandshake size={18} className="group-hover:scale-110 transition-transform" />
@@ -247,7 +247,7 @@ const Header = () => {
               setMobileMenuOpen(false);
               navigate("/sponsor");
             }}
-            className="w-full py-3.5 bg-white border-2 border-[#002d4b] text-[#002d4b] text-sm font-bold uppercase tracking-wider rounded-xl shadow-sm active:scale-[0.98] transition-all flex justify-center items-center gap-2 hover:bg-gray-50"
+            className="w-full py-3.5 bg-white border-2 border-[#002d4b] text-[#002d4b] text-sm font-bold uppercase tracking-wider rounded-xl shadow-sm active:scale-[0.98] transition-all flex justify-center items-center gap-2 hover:bg-gray-50 cursor-pointer"
           >
             <span>Sponsor</span>
           </button>
@@ -257,7 +257,7 @@ const Header = () => {
               setMobileMenuOpen(false);
               navigate("/license");
             }}
-            className="w-full py-4 bg-[#f26522] text-white text-sm font-bold uppercase tracking-wider rounded-xl shadow-lg shadow-[#f26522]/20 active:scale-[0.98] transition-all flex justify-center items-center gap-2 hover:bg-[#d9561a]"
+            className="w-full py-4 bg-[#f26522] text-white text-sm font-bold uppercase tracking-wider rounded-xl shadow-lg shadow-[#f26522]/20 active:scale-[0.98] transition-all flex justify-center items-center gap-2 hover:bg-[#d9561a] cursor-pointer"
           >
             <span>Join Us Now</span>
             <HeartHandshake size={18} />

@@ -9,7 +9,7 @@ const SponsorPage = () => {     // ✅ Capital S
             <Hero />
             <ImpactPlan />
             <TransparencySection />
-            {/* <ContributionSection /> */}
+            <ContributionSection />
         </>
     )
 }
