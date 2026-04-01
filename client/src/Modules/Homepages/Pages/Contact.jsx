@@ -106,9 +106,9 @@ const Contact = () => {
                     Phone Support
                   </h4>
                   <div className="flex flex-col gap-1">
-                      <a href="tel:04132234567" className="text-slate-800 font-bold hover:text-[#f26522] transition">
+                      {/* <a href="tel:04132234567" className="text-slate-800 font-bold hover:text-[#f26522] transition">
                         0413 - 223 4567 (Office)
-                      </a>
+                      </a> */}
                       <a href="tel:+919843048384" className="text-slate-800 font-bold hover:text-[#f26522] transition">
                         +91 98430 48384 (Mobile)
                       </a>

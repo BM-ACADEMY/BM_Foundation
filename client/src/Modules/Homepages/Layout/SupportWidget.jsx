@@ -6,13 +6,13 @@ const SupportWidget = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const contactOptions = [
-        {
-            name: "Call Office",
-            icon: Phone,
-            value: "0413-2234567",
-            link: "tel:04132234567",
-            color: "bg-blue-50 text-blue-600"
-        },
+        // {
+        //     name: "Call Office",
+        //     icon: Phone,
+        //     value: "0413-2234567",
+        //     link: "tel:04132234567",
+        //     color: "bg-blue-50 text-blue-600"
+        // },
         {
             name: "WhatsApp Support",
             icon: MessageCircle,
