@@ -41,6 +41,7 @@ import LicenseCardPdfWrapper from "../Modules/Homepages/Pages/LicenseCardPdfWrap
 import Gallery from "../Modules/Homepages/Pages/Gallery";
 import SponsorPage from "../Modules/Homepages/Pages/sponsor/SponsorPage";
 import ThankYou from "../Modules/Homepages/Pages/ThankYou";
+import Volunteer from "../Modules/Homepages/Pages/Volunteer";
 const AppRoutes = () => {
   return (
     <Router>
@@ -117,6 +118,14 @@ const AppRoutes = () => {
           }
         />
 
+        {/* <Route
+          path="/volunteer"
+          element={
+            <Layout>
+              <Volunteer />
+            </Layout>
+          }
+        /> */}
 
         {/* ---------- Admin ---------- */}
         <Route path="/admin/*" element={<AdminRoutes />} />

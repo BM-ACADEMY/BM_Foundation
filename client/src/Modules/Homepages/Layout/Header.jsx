@@ -12,7 +12,7 @@ const Header = () => {
 
   const menuItems = [
     { label: "Home", path: "/" },
-    { label: "Volunteer", path: "/license" },
+    { label: "Volunteer", path: "/volunteer" },
     { label: "About", path: "/#about" },
     { label: "Gallery", path: "/gallery" },
     { label: "Contact", path: "/contact" },
