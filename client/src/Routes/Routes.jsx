@@ -118,14 +118,14 @@ const AppRoutes = () => {
           }
         />
 
-        {/* <Route
+        <Route
           path="/volunteer"
           element={
             <Layout>
               <Volunteer />
             </Layout>
           }
-        /> */}
+        />
 
         {/* ---------- Admin ---------- */}
         <Route path="/admin/*" element={<AdminRoutes />} />
