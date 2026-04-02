@@ -243,7 +243,7 @@ const ImpactPlan = () => {
                                             href="https://wa.me/918056889971"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="w-full md:w-auto bg-[#002d4b] hover:bg-[#003a61] text-white font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-2 transition-all group"
+                                            className="w-full md:w-auto bg-[#002d4b] hover:bg-[#003a61] text-white font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-2 transition-all group whitespace-nowrap"
                                         >
                                             Support This Program
                                             <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
