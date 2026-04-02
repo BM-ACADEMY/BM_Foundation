@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-xs: 400px;
+}
+
 .enrollment-steps {
   font-family: 'Inter', sans-serif;
 }

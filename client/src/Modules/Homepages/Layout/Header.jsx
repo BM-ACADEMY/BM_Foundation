@@ -12,7 +12,7 @@ const Header = () => {
 
   const menuItems = [
     { label: "Home", path: "/" },
-    { label: "Volunteer", path: "/volunteer" },
+    { label: "Volunteer", path: "/license" },
     { label: "About", path: "/#about" },
     { label: "Gallery", path: "/gallery" },
     { label: "Contact", path: "/contact" },
@@ -67,24 +67,24 @@ const Header = () => {
       {/* Top Gradient Line */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#b38a11] via-[#1a1a1a] to-[#8b0000]" />
 
-      <div className="w-full max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           {/* ---------------- 1. LOGO SECTION ---------------- */}
           <Link
             to="/"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex items-center gap-3 group shrink-0 relative z-50 mr-4"
+            className="flex items-center gap-2 sm:gap-3 group shrink-0 relative z-50 mr-2 sm:mr-4"
           >
             <div className="relative">
               <div className="absolute inset-0 bg-[#d4a017]/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
               <img
                 src={logo}
                 alt="BM Foundation"
-                className="h-10 sm:h-12 lg:h-14 w-auto object-contain relative z-10"
+                className="h-8 sm:h-12 lg:h-14 w-auto object-contain relative z-10"
               />
             </div>
             <div className="flex flex-col leading-none">
-              <h1 className="text-xl sm:text-2xl font-black text-[#002d4b] tracking-wide uppercase whitespace-nowrap">
+              <h1 className="text-base sm:text-xl lg:text-2xl font-black text-[#002d4b] tracking-tight sm:tracking-wide uppercase whitespace-nowrap">
                 BM <span className="text-[#f2bc1c]">Foundation</span>
               </h1>
               <p className="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase mt-0.5 hidden xs:block">
@@ -131,11 +131,11 @@ const Header = () => {
             {/* Download ID Icon Button */}
             <button
               onClick={() => navigate("/license/download")}
-              className="text-[#002d4b] hover:text-[#f26522] p-2 rounded-full hover:bg-gray-100 transition-colors flex items-center justify-center"
+              className="text-[#002d4b] hover:text-[#f26522] p-1.5 sm:p-2 rounded-full hover:bg-gray-100 transition-colors flex items-center justify-center"
               title="Download ID"
               aria-label="Download ID"
             >
-              <Download size={22} />
+              <Download className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
             {/* Sponsor Button (Desktop) */}
@@ -158,10 +158,10 @@ const Header = () => {
             {/* Mobile Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden text-[#002d4b] hover:text-[#f26522] p-1 transition-colors z-50"
+              className="lg:hidden text-[#002d4b] hover:text-[#f26522] p-1.5 transition-colors z-50"
               aria-label="Open Menu"
             >
-              <Menu size={28} />
+              <Menu className="w-6 h-6 sm:w-7 sm:h-7" />
             </button>
           </div>
         </div>
@@ -180,7 +180,7 @@ const Header = () => {
       {/* Side Drawer */}
       <div
         className={`fixed top-0 right-0 h-full w-[85vw] max-w-[340px] bg-white shadow-2xl z-[70] transform transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden flex flex-col ${
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          mobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 invisible"
         }`}
       >
         {/* Drawer Header */}

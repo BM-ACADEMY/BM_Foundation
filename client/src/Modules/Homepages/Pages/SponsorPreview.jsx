@@ -13,15 +13,18 @@ const SponsorPreview = () => {
     const programs = [
         {
             title: "Exam Success Program",
-            shortLine: "Supporting students with effective exam preparation and guidance."
+            shortLine: "Supporting students with effective exam preparation and guidance.",
+            date: "March 2026"
         },
         {
             title: "Career Assessment & Guidance",
-            shortLine: "Helping students identify the right career path through assessment and mentoring."
+            shortLine: "Helping students identify the right career path through assessment and mentoring.",
+            date: "April 2026"
         },
         {
             title: "Summer Youth Empowerment",
-            shortLine: "Skill development and leadership training programs for youth."
+            shortLine: "Skill development and leadership training programs for youth.",
+            date: "May 2026"
         }
     ];
 
@@ -65,9 +68,16 @@ const SponsorPreview = () => {
                                     className="group flex flex-col gap-2 p-5 rounded-2xl border border-gray-100 hover:border-[#002d4b]/20 hover:shadow-[0_8px_30px_rgba(0,45,75,0.06)] bg-white transition-all duration-300 cursor-pointer"
                                 >
                                     <div className="flex items-start justify-between gap-3">
-                                        <h4 className="font-bold text-[#002d4b] text-base leading-snug">
-                                            {prog.title}
-                                        </h4>
+                                        <div className="flex flex-col gap-1">
+                                            <h4 className="font-bold text-[#002d4b] text-base leading-snug">
+                                                {prog.title}
+                                            </h4>
+                                            {prog.date && (
+                                                <span className="text-[10px] bg-[#d4a017]/10 text-[#d4a017] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider w-fit">
+                                                    {prog.date}
+                                                </span>
+                                            )}
+                                        </div>
                                         <div className={`mt-1 w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${expandedCard === idx ? "bg-[#002d4b]" : "bg-gray-50 group-hover:bg-[#002d4b]"}`}>
                                             <ArrowUpRight
                                                 size={15}
