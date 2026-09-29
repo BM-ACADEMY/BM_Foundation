@@ -90,8 +90,8 @@ const Contact = () => {
                     Office Address
                   </h4>
                   <p className="text-slate-700 leading-relaxed font-bold">
-                    No.252, 2nd Floor, M.G. Road,<br />
-                    Kottakuppam, Puducherry – 605104
+                    78, Lenin Street, Kosapalayam,<br />
+                    Puducherry – 605013
                   </p>
                 </div>
               </div>
@@ -152,7 +152,7 @@ const Contact = () => {
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.220163353457!2d79.81423797505963!3d11.959247088270546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a53616a2469d763%3A0x673193638c4c66!2sKottakuppam%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?q=78+Lenin+Street+Kosapalayam+Puducherry+605013&output=embed"
               />
             </div>
           </motion.div>

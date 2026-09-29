@@ -143,12 +143,12 @@ const Footer = () => {
               <li className="flex gap-3">
                 <MapPin size={18} className="text-[#f26522] flex-shrink-0 mt-0.5" />
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=252+M.G+Road+kottakuppam+Tamil+Nadu+605104"
+                  href="https://www.google.com/maps/search/?api=1&query=78+Lenin+Street+Kosapalayam+Puducherry+605013"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#f2bc1c] transition-colors"
                 >
-                  252, M.G Road, kottakuppam,<br />Tamil Nadu - 605104
+                  78, Lenin Street, Kosapalayam,<br />Puducherry - 605013
                 </a>
               </li>
               <li className="flex gap-3">
